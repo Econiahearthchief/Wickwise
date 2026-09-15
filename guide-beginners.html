@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Candle making for beginners — WickWise</title>
+<style>
+  :root {
+    --wax-dark: #1C140D; --wax-panel: #2A1D12; --wax-cream: #F2E6D3;
+    --wax-cream-dim: rgba(242, 230, 211, 0.65); --flame: #E8A33D;
+    --ember: #C1592B; --line: rgba(242, 230, 211, 0.14);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--wax-dark); color: var(--wax-cream);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6; min-height: 100vh; padding-bottom: 60px;
+  }
+  header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 20px; border-bottom: 1px solid var(--line);
+  }
+  .brand { display: flex; align-items: center; gap: 10px; font-family: Georgia, serif; font-size: 1.2rem; }
+  .brand svg { width: 28px; height: 28px; }
+  .owl-eye { animation: ember-glow 3.4s ease-in-out infinite; }
+  @keyframes ember-glow { 0%, 100% { fill: var(--ember); opacity: 0.55; } 50% { fill: var(--flame); opacity: 1; } }
+  nav.top-nav a { color: var(--wax-cream-dim); text-decoration: none; font-size: 0.85rem; margin-left: 16px; }
+  nav.top-nav a:hover { color: var(--flame); }
+  main { max-width: 560px; margin: 0 auto; padding: 32px 20px; }
+  main h1 { font-family: Georgia, serif; font-weight: 400; font-size: clamp(1.6rem, 6vw, 2rem); margin-bottom: 20px; }
+  main h2 { font-family: Georgia, serif; font-weight: 400; font-size: 1.25rem; color: var(--flame); margin: 32px 0 12px; }
+  main p { font-size: 0.95rem; color: var(--wax-cream-dim); margin-bottom: 14px; }
+  main ul, main ol { margin: 0 0 14px 20px; color: var(--wax-cream-dim); font-size: 0.95rem; }
+  main li { margin-bottom: 8px; }
+  main strong { color: var(--wax-cream); }
+  main code { background: var(--wax-panel); padding: 2px 6px; border-radius: 4px; font-size: 0.85em; }
+  main pre { background: var(--wax-panel); border: 1px solid var(--line); border-radius: 8px; padding: 14px; overflow-x: auto; margin-bottom: 14px; }
+  main pre code { background: none; padding: 0; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 0.85rem; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+  th { color: var(--wax-cream-dim); font-weight: 600; background: var(--wax-panel); }
+  .cross-links {
+    display: flex; gap: 10px; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--line);
+  }
+  .cross-links a {
+    flex: 1; text-align: center; padding: 14px; border: 1px solid var(--flame); border-radius: 8px;
+    color: var(--flame); text-decoration: none; font-size: 0.88rem;
+  }
+  .cross-links a:hover { background: rgba(232,163,61,0.1); }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M60 18C36 18 22 38 22 64C22 90 38 106 60 106C82 106 98 90 98 64C98 38 84 18 60 18Z" fill="#2A1D12" stroke="#F2E6D3" stroke-opacity="0.15" stroke-width="1.5"/>
+      <path d="M34 30C30 20 28 12 30 6C36 12 40 20 42 28Z" fill="#2A1D12" stroke="#F2E6D3" stroke-opacity="0.15" stroke-width="1.5"/>
+      <path d="M86 30C90 20 92 12 90 6C84 12 80 20 78 28Z" fill="#2A1D12" stroke="#F2E6D3" stroke-opacity="0.15" stroke-width="1.5"/>
+      <ellipse cx="60" cy="62" rx="34" ry="30" fill="#1C140D"/>
+      <circle cx="46" cy="60" r="9" fill="#150F09"/><circle cx="74" cy="60" r="9" fill="#150F09"/>
+      <circle class="owl-eye" cx="46" cy="60" r="4.2"/><circle class="owl-eye" cx="74" cy="60" r="4.2" style="animation-delay: -1.7s;"/>
+      <path d="M60 70L54 80L60 78L66 80Z" fill="#E8A33D" opacity="0.85"/>
+    </svg>
+    WickWise
+  </div>
+  <nav class="top-nav">
+    <a href="index.html">Calculators</a>
+    <a href="gallery.html">Gallery</a>
+  </nav>
+</header>
+<main>
+<h1>Candle making for beginners — complete step-by-step guide</h1>
+<p>Everything you need for your first batch, plus the mistakes that trip up nearly everyone starting out — explained so you understand <em>why</em>, not just what button to press.</p>
+<h2>What you need before you start</h2>
+<ul>
+<li>Wax (soy is the easiest starting point — see the wax comparison guide)</li>
+<li>Fragrance oil made for candles specifically (not all fragrance/essential oils are candle-safe — see the note on this below)</li>
+<li>Wicks, sized to your container's diameter (use the wick chart in the calculator)</li>
+<li>A container — glass jars or metal tins are the most beginner-friendly</li>
+<li>A pouring pot or a heatproof container you can use as a double boiler</li>
+<li>A kitchen scale (measuring by weight, not volume, is the only way to get consistent results)</li>
+<li>A candy or wax thermometer</li>
+<li>Wick stickers or hot glue, and a wick centering tool (a clothespin or a couple of pencils across the jar's rim works fine)</li>
+</ul>
+<h2>Step 1 — Measure your wax</h2>
+<p>Calculate wax weight from your container's capacity, not a guess. The standard formula is container capacity (fl oz) × your wax's fill factor — for soy, that's roughly 0.86. An 8 oz jar needs about 6.9 oz of wax, not 8 oz — the fill factor accounts for headspace and the volume the wick and any color/fragrance additions take up.</p>
+<h2>Step 2 — Melt the wax</h2>
+<p>Melt using a double-boiler setup (a pouring pot or heatproof pitcher set inside a pot of simmering water) rather than direct heat, which is harder to control and risks scorching the wax. Heat until fully melted and clear, then let it cool to your fragrance-add temperature before the next step — this varies significantly by wax type, so don't default to one number across every wax you use.</p>
+<h2>Step 3 — Add fragrance oil (and dye, if using)</h2>
+<p>Add fragrance oil once the wax has cooled to the right temperature for that wax type (soy: 130–140°F; coconut: 105–115°F; paraffin: 180–185°F; beeswax: 160–170°F). Adding fragrance above this range risks burning off the scent before it ever binds with the wax — you lose it invisibly, with no obvious sign until you burn the finished candle and wonder why it's weak. Stir gently but thoroughly for a full 1–2 minutes; under-stirring is a common, invisible cause of uneven scent distribution.</p>
+<p>If adding dye, this is also the point to do it — mix in gradually, since wax looks noticeably darker in its liquid state than it will once fully set.</p>
+<h2>Step 4 — Set your wick</h2>
+<p>Center the wick before pouring, not after — repositioning a wick in already-poured wax rarely ends cleanly. Use a centering tool across the top of the container to hold it straight while the wax sets.</p>
+<h2>Step 5 — Pour</h2>
+<p>Pour at your wax's recommended pour temperature (slightly cooler than the fragrance-add temperature). Pouring too hot can cause excess frosting or sink holes as it cools; pouring too cool can cause poor adhesion to the container's sides ("wet spots"). Leave the wick untrimmed at this stage — trim after curing, not before.</p>
+<h2>Step 6 — Cool and cure</h2>
+<p>Let the candle cool undisturbed at room temperature — moving it too early is one of the most common beginner mistakes and causes sinkholes or a shifted wick. Once fully set, resist the urge to test-burn immediately: cure time (not just cooling time) is when the fragrance oil actually finishes binding with the wax. Soy and coconut typically need 1–2 weeks for a fair scent test; paraffin cures faster, in 24–48 hours; beeswax often wants closer to 2 weeks.</p>
+<h2>Step 7 — Trim and test-burn</h2>
+<p>Trim the wick to ¼ inch before the first light. On that first burn, let the candle burn for roughly 1 hour per inch of container diameter — this establishes a full, edge-to-edge melt pool and prevents tunneling (wax left un-melted around the container's walls), which permanently wastes wax and shortens the candle's real burn time for every burn after.</p>
+<h2>Six mistakes that trip up nearly everyone starting out</h2>
+<ol>
+<li><strong>Measuring wax by volume instead of weight.</strong> Cups and ounces-as-volume aren't reliable for wax — always weigh it.</li>
+<li><strong>Adding fragrance oil too hot.</strong> This is the single most common cause of a "why is my candle not scented" complaint, and it's invisible until the burn test.</li>
+<li><strong>Skipping cure time.</strong> Testing a candle at 48 hours and judging its scent throw as final is misleading for soy, coconut, and beeswax.</li>
+<li><strong>Guessing wick size instead of checking the diameter chart.</strong> An undersized wick is the most common cause of weak hot throw even with a correct fragrance load.</li>
+<li><strong>Using essential oils in place of candle fragrance oils.</strong> Many essential oils have lower flash points and evaporate at candle-making temperatures rather than binding with the wax — if you want a natural option, look specifically for candle-safe essential oil blends, not general aromatherapy oils.</li>
+<li><strong>Moving or trimming the candle before it's fully cooled.</strong> This causes sinkholes, cracking, or a shifted, off-center wick.</li>
+</ol>
+<p>None of these mistakes are unusual or a sign you're doing something wrong as a beginner — they're the standard early-batch learning curve. The difference between a first batch and a tenth batch is almost always these six things, not talent or better equipment.</p>
+<div class="cross-links">
+  <a href="index.html">← Try the calculators</a>
+  <a href="gallery.html">See the gallery →</a>
+</div>
+</main>
+</body>
+</html>

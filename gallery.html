@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WickWise — Gallery &amp; Verified Sellers</title>
+<style>
+  :root {
+    --wax-dark: #1C140D;
+    --wax-panel: #2A1D12;
+    --wax-cream: #F2E6D3;
+    --wax-cream-dim: rgba(242, 230, 211, 0.65);
+    --flame: #E8A33D;
+    --ember: #C1592B;
+    --line: rgba(242, 230, 211, 0.14);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--wax-dark);
+    color: var(--wax-cream);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.5;
+    min-height: 100vh;
+    padding-bottom: 60px;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: Georgia, serif;
+    font-size: 1.25rem;
+  }
+  .brand svg { width: 30px; height: 30px; }
+  .owl-eye { animation: ember-glow 3.4s ease-in-out infinite; }
+  @keyframes ember-glow {
+    0%, 100% { fill: var(--ember); opacity: 0.55; }
+    50%      { fill: var(--flame); opacity: 1; }
+  }
+  @media (prefers-reduced-motion: reduce) { .owl-eye { animation: none; fill: var(--flame); } }
+
+  nav.top-nav a {
+    color: var(--wax-cream-dim);
+    text-decoration: none;
+    font-size: 0.88rem;
+    margin-left: 18px;
+  }
+  nav.top-nav a:hover { color: var(--flame); }
+
+  main {
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 28px 20px;
+  }
+
+  h1.hero {
+    font-family: Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(1.7rem, 6vw, 2.1rem);
+    margin-bottom: 6px;
+  }
+  p.hero-sub {
+    color: var(--wax-cream-dim);
+    font-size: 0.95rem;
+    margin-bottom: 32px;
+    max-width: 40ch;
+  }
+
+  section.block {
+    margin-bottom: 44px;
+  }
+
+  h2.section-title {
+    font-family: Georgia, serif;
+    font-weight: 400;
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+  }
+  p.section-sub {
+    color: var(--wax-cream-dim);
+    font-size: 0.88rem;
+    margin-bottom: 20px;
+  }
+
+  /* Gallery grid */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .gallery-item {
+    aspect-ratio: 1;
+    background: var(--wax-panel);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+  }
+  .gallery-item img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  .gallery-item .caption {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.75));
+    padding: 8px;
+    font-size: 0.7rem;
+  }
+  .gallery-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 30px 10px;
+    color: var(--wax-cream-dim);
+    font-size: 0.85rem;
+    border: 1px dashed var(--line);
+    border-radius: 10px;
+  }
+
+  /* Submission form */
+  label.field-label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--wax-cream-dim);
+    margin-bottom: 6px;
+  }
+  input[type="text"], input[type="file"], textarea {
+    width: 100%;
+    background: var(--wax-panel);
+    border: 1px solid var(--line);
+    color: var(--wax-cream);
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-bottom: 16px;
+    font-family: inherit;
+  }
+  textarea { resize: vertical; min-height: 70px; }
+  input:focus, textarea:focus { outline: none; border-color: var(--flame); }
+
+  button.primary {
+    width: 100%;
+    background: var(--flame);
+    color: var(--wax-dark);
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  button.primary:hover { background: #f0b459; }
+  button.primary:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  #submit-status {
+    text-align: center;
+    font-size: 0.85rem;
+    margin-top: 12px;
+    color: var(--wax-cream-dim);
+  }
+
+  .note-box {
+    font-size: 0.8rem;
+    color: var(--wax-cream-dim);
+    background: rgba(242,230,211,0.04);
+    border-left: 2px solid var(--flame);
+    padding: 12px 16px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+
+  /* Verified sellers */
+  .seller-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .seller-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--wax-panel);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .seller-info { display: flex; align-items: center; gap: 10px; }
+  .badge {
+    background: rgba(232, 163, 61, 0.15);
+    color: var(--flame);
+    font-size: 0.65rem;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 600;
+  }
+  .seller-name { font-size: 0.95rem; }
+  .seller-link {
+    color: var(--flame);
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-bottom: 1px solid rgba(232,163,61,0.3);
+  }
+  .seller-link:hover { border-bottom-color: var(--flame); }
+
+  .cta-panel {
+    background: var(--wax-panel);
+    border: 1px solid var(--flame);
+    border-radius: 10px;
+    padding: 22px;
+    text-align: center;
+  }
+  .cta-panel .price {
+    font-family: Georgia, serif;
+    font-size: 1.8rem;
+    color: var(--flame);
+    margin: 8px 0;
+  }
+  .cta-panel .price span { font-size: 0.9rem; color: var(--wax-cream-dim); }
+  a.cta-btn {
+    display: block;
+    background: var(--flame);
+    color: var(--wax-dark);
+    text-decoration: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-top: 14px;
+  }
+  a.cta-btn:hover { background: #f0b459; }
+
+  :focus-visible { outline: 2px solid var(--flame); outline-offset: 2px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M60 18C36 18 22 38 22 64C22 90 38 106 60 106C82 106 98 90 98 64C98 38 84 18 60 18Z" fill="#2A1D12" stroke="#F2E6D3" stroke-opacity="0.15" stroke-width="1.5"/>
+      <path d="M34 30C30 20 28 12 30 6C36 12 40 20 42 28Z" fill="#2A1D12" stroke="#F2E6D3" stroke-opacity="0.15" stroke-width="1.5"/>
+      <path d="M86 30C90 20 92 12 90 6C84 12 80 20 78 28Z" fill="#2A1D12" stroke="#F2E6D3" stroke-opacity="0.15" stroke-width="1.5"/>
+      <ellipse cx="60" cy="62" rx="34" ry="30" fill="#1C140D"/>
+      <circle cx="46" cy="60" r="9" fill="#150F09"/>
+      <circle cx="74" cy="60" r="9" fill="#150F09"/>
+      <circle class="owl-eye" cx="46" cy="60" r="4.2"/>
+      <circle class="owl-eye" cx="74" cy="60" r="4.2" style="animation-delay: -1.7s;"/>
+      <path d="M60 70L54 80L60 78L66 80Z" fill="#E8A33D" opacity="0.85"/>
+    </svg>
+    WickWise
+  </div>
+  <nav class="top-nav">
+    <a href="index.html">Calculators</a>
+    <a href="#gallery">Gallery</a>
+  </nav>
+</header>
+
+<main>
+  <h1 class="hero">Show off what you made.</h1>
+  <p class="hero-sub">A gallery of real candles from real makers — and a directory of sellers worth buying from.</p>
+
+  <section class="block" id="gallery">
+    <h2 class="section-title">Community gallery</h2>
+    <p class="section-sub">Every candle here was made by someone using these calculators.</p>
+    <div class="gallery-grid" id="gallery-grid">
+      <div class="gallery-empty">No submissions yet — be the first to show off your batch.</div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2 class="section-title">Submit your candle</h2>
+    <p class="section-sub">Free, no account needed. Photo, a bit about it, done.</p>
+
+    <label class="field-label" for="sub-name">Your name or shop name</label>
+    <input type="text" id="sub-name" placeholder="e.g. Sarah's Soy Co.">
+    <label class="field-label" for="sub-note">Tell us about it</label>
+    <textarea id="sub-note" placeholder="e.g. Soy + lavender, 8% load, CD-16 wick — smells amazing after a 2-week cure."></textarea>
+    <label class="field-label" for="sub-photo">Photo</label>
+    <input type="file" id="sub-photo" accept="image/*">
+
+    <button class="primary" id="submit-btn">Submit to gallery</button>
+    <p id="submit-status"></p>
+  </section>
+
+  <section class="block">
+    <h2 class="section-title">Verified sellers</h2>
+    <p class="section-sub">Real candle sellers, verified and linked to their own shop.</p>
+    <div class="seller-list" id="seller-list">
+      <div class="gallery-empty">No verified sellers yet — be the first.</div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="cta-panel">
+      <h2 class="section-title">Become a verified seller</h2>
+      <p class="section-sub">$0.99 card check + $2.99/mo for your badge, featured spot, and shop link — billed together in one checkout.</p>
+      <div class="price">$0.99<span> to start</span></div>
+
+      <form id="seller-form" style="display:flex; flex-direction:column; gap:10px; margin-top:14px; max-width:420px;">
+        <div>
+          <label for="seller-name" style="font-size:0.85rem; display:block; margin-bottom:4px;">Your name or shop name</label>
+          <input type="text" id="seller-name" required placeholder="e.g. Hollow & Wick Co." style="width:100%; padding:10px 12px; border:1px solid var(--line); border-radius:8px; font:inherit;">
+        </div>
+        <div>
+          <label for="seller-url" style="font-size:0.85rem; display:block; margin-bottom:4px;">Your featured shop link</label>
+          <input type="url" id="seller-url" required placeholder="https://yourshop.com/best-seller" style="width:100%; padding:10px 12px; border:1px solid var(--line); border-radius:8px; font:inherit;">
+          <p style="font-size:0.78rem; color:var(--muted, #888); margin-top:4px;">Link to your shop's homepage or your best-selling featured product — not just any random listing. This is what shoppers will click.</p>
+        </div>
+        <button type="submit" class="cta-btn" id="verify-cta">Get verified</button>
+        <p id="seller-form-status" style="font-size:0.85rem;"></p>
+      </form>
+    </div>
+  </section>
+  <section class="block">
+    <h2 class="section-title">Want to get it right first?</h2>
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <a href="index.html" style="color:var(--flame); text-decoration:none; padding:12px 16px; border:1px solid var(--flame); border-radius:8px; font-size:0.9rem; text-align:center; background:rgba(232,163,61,0.08);">← Back to the calculators</a>
+      <a href="guide-beginners.html" style="color:var(--flame); text-decoration:none; padding:12px 16px; border:1px solid var(--line); border-radius:8px; font-size:0.9rem;">New to candle making? Start here →</a>
+    </div>
+  </section>
+</main>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
+  import {
+    getFirestore, collection, addDoc, serverTimestamp, query, where, orderBy, getDocs, limit
+  } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
+  import {
+    getStorage, ref, uploadBytes, getDownloadURL
+  } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-storage.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyD3KgWXsbDmwYCyMLIXeOCkxa8tfrNZSQQ",
+    authDomain: "wickwise-app.firebaseapp.com",
+    projectId: "wickwise-app",
+    storageBucket: "wickwise-app.firebasestorage.app",
+    messagingSenderId: "309673736602",
+    appId: "1:309673736602:web:f3063cd08687dfd5dee223",
+    measurementId: "G-3EH20R34K7"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  const storage = getStorage(app);
+
+  // ---- Load approved gallery submissions ----
+  async function loadGallery() {
+    try {
+      const q = query(
+        collection(db, 'gallery_submissions'),
+        where('status', '==', 'approved'),
+        orderBy('createdAt', 'desc'),
+        limit(20)
+      );
+      const snap = await getDocs(q);
+      if (snap.empty) return; // leave the "no submissions yet" placeholder
+      const grid = document.getElementById('gallery-grid');
+      grid.innerHTML = '';
+      snap.forEach(doc => {
+        const d = doc.data();
+        const item = document.createElement('div');
+        item.className = 'gallery-item';
+        item.innerHTML = `
+          ${d.photoUrl ? `<img src="${d.photoUrl}" alt="${d.name || 'Candle submission'}">` : ''}
+          <div class="caption">${d.name || 'Anonymous maker'}</div>
+        `;
+        grid.appendChild(item);
+      });
+    } catch (err) {
+      // Firestore query needs a composite index on first run — safe to ignore until that's created
+      console.log('Gallery load skipped:', err.message);
+    }
+  }
+
+  // ---- Load verified sellers ----
+  async function loadSellers() {
+    try {
+      const q = query(collection(db, 'verified_sellers'), orderBy('createdAt', 'desc'));
+      const snap = await getDocs(q);
+      if (snap.empty) return;
+      const list = document.getElementById('seller-list');
+      list.innerHTML = '';
+      snap.forEach(doc => {
+        const d = doc.data();
+        const card = document.createElement('div');
+        card.className = 'seller-card';
+        card.innerHTML = `
+          <div class="seller-info">
+            <span class="badge">VERIFIED</span>
+            <span class="seller-name">${d.name}</span>
+          </div>
+          <a class="seller-link" href="${d.shopUrl}" target="_blank" rel="noopener">Visit shop →</a>
+        `;
+        list.appendChild(card);
+      });
+    } catch (err) {
+      console.log('Seller list load skipped:', err.message);
+    }
+  }
+
+  loadGallery();
+  loadSellers();
+
+  // ---- Submission form ----
+  document.getElementById('submit-btn').addEventListener('click', async () => {
+    const name = document.getElementById('sub-name').value.trim();
+    const note = document.getElementById('sub-note').value.trim();
+    const photoFile = document.getElementById('sub-photo').files[0];
+    const statusEl = document.getElementById('submit-status');
+    const btn = document.getElementById('submit-btn');
+
+    if (!name || !note) {
+      statusEl.textContent = 'Please add your name and a note about your candle.';
+      return;
+    }
+
+    btn.disabled = true;
+    statusEl.textContent = photoFile ? 'Uploading photo…' : 'Submitting…';
+
+    try {
+      let photoUrl = null;
+
+      if (photoFile) {
+        if (photoFile.size > 8 * 1024 * 1024) {
+          statusEl.textContent = 'Photo is too large — please use one under 8MB.';
+          btn.disabled = false;
+          return;
+        }
+        const fileRef = ref(storage, `gallery/${Date.now()}_${photoFile.name}`);
+        await uploadBytes(fileRef, photoFile);
+        photoUrl = await getDownloadURL(fileRef);
+      }
+
+      await addDoc(collection(db, 'gallery_submissions'), {
+        name, note, photoUrl,
+        status: 'pending',
+        createdAt: serverTimestamp()
+      });
+
+      statusEl.textContent = "✓ Submitted! It'll show up here once approved.";
+      document.getElementById('sub-name').value = '';
+      document.getElementById('sub-note').value = '';
+      document.getElementById('sub-photo').value = '';
+    } catch (err) {
+      statusEl.textContent = 'Something went wrong — try again.';
+    } finally {
+      btn.disabled = false;
+    }
+  });
+
+  // ---- Verified seller CTA ----
+  document.getElementById('seller-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById('verify-cta');
+    const statusEl = document.getElementById('seller-form-status');
+    const name = document.getElementById('seller-name').value.trim();
+    const shopUrl = document.getElementById('seller-url').value.trim();
+
+    btn.disabled = true;
+    statusEl.textContent = 'Starting checkout…';
+
+    try {
+      const res = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, shopUrl })
+      });
+      const data = await res.json();
+      if (!res.ok || !data.url) {
+        throw new Error(data.error || 'Could not start checkout.');
+      }
+      window.location.href = data.url; // redirect to Stripe Checkout
+    } catch (err) {
+      statusEl.textContent = err.message || 'Something went wrong — try again.';
+      btn.disabled = false;
+    }
+  });
+</script>
+
+</body>
+</html>

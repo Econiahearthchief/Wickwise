@@ -1,0 +1,25 @@
+[build]
+  functions = "netlify/functions"
+  publish = "."
+
+[build.environment]
+  # The Firebase apiKey hardcoded in the HTML files is a public,
+  # client-side identifier (not a secret) — Firebase security comes from
+  # the Firestore/Storage rules, not from hiding this key. Netlify's
+  # automatic secret scanner doesn't know that, so skip these files.
+  SECRETS_SCAN_OMIT_PATHS = "index.html,gallery.html,admin.html,guide-beginners.html,guide-best-wax.html,guide-fragrance-oil.html"
+
+[functions]
+  node_bundler = "esbuild"
+
+# Stripe webhooks need the raw request body — do not let Netlify's default
+# body parsing/redirect rules touch this path.
+[[redirects]]
+  from = "/api/create-checkout-session"
+  to = "/.netlify/functions/create-checkout-session"
+  status = 200
+
+[[redirects]]
+  from = "/api/stripe-webhook"
+  to = "/.netlify/functions/stripe-webhook"
+  status = 200
