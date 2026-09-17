@@ -36,15 +36,27 @@ exports.handler = async (event) => {
   const sig = event.headers["stripe-signature"];
   let stripeEvent;
 
-  try {
-    stripeEvent = stripe.webhooks.constructEvent(
-      event.body,
-      sig,
-      process.env.STRIPE_WEBHOOK_SIGNING_SECRET
-    );
-  } catch (err) {
-    console.error("Webhook signature verification failed:", err.message);
-    return { statusCode: 400, body: `Webhook Error: ${err.message}` };
+  // Two separate Stripe webhook endpoints point at this same URL (one for
+  // checkout/subscription events, one for invoice.payment_failed), and each
+  // has its own signing secret. Try both — a request only came from one of
+  // them, so exactly one of these should succeed.
+  const possibleSecrets = [
+    process.env.STRIPE_WEBHOOK_SIGNING_SECRET,
+    process.env.STRIPE_WEBHOOK_SIGNING_SECRET_2,
+  ].filter(Boolean);
+
+  for (const secret of possibleSecrets) {
+    try {
+      stripeEvent = stripe.webhooks.constructEvent(event.body, sig, secret);
+      break;
+    } catch {
+      // Try the next secret.
+    }
+  }
+
+  if (!stripeEvent) {
+    console.error("Webhook signature verification failed against all configured secrets");
+    return { statusCode: 400, body: "Webhook Error: invalid signature" };
   }
 
   try {
