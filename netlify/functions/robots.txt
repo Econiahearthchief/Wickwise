@@ -1,5 +1,0 @@
-User-agent: *
-Disallow: /admin.html
-Allow: /
-
-Sitemap: https://www.wickwise.shop/sitemap.xml
