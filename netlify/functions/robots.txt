@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /admin.html
 Allow: /
 
-Sitemap: https://wickwise.shop/sitemap.xml
+Sitemap: https://www.wickwise.shop/sitemap.xml
