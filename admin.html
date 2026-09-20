@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -91,6 +91,9 @@
     <h2 class="section-title">Pending gallery submissions</h2>
     <div id="pending-list"><div class="empty-note">Loading…</div></div>
 
+    <h2 class="section-title">Pending verified sellers</h2>
+    <div id="pending-sellers-list"><div class="empty-note">Loading…</div></div>
+
     <h2 class="section-title">Add a verified seller</h2>
     <div class="seller-form">
       <input type="text" id="seller-name" placeholder="Seller / shop name">
@@ -131,7 +134,7 @@
     document.getElementById('login-screen').style.display = isAdmin ? 'none' : 'block';
     document.getElementById('app-screen').style.display = isAdmin ? 'block' : 'none';
     document.getElementById('logout-btn').style.display = isAdmin ? 'inline-block' : 'none';
-    if (isAdmin) loadPending();
+    if (isAdmin) { loadPending(); loadPendingSellers(); }
   });
 
   document.getElementById('login-btn').addEventListener('click', async () => {
@@ -181,6 +184,39 @@
     });
   }
 
+  async function loadPendingSellers() {
+    const listEl = document.getElementById('pending-sellers-list');
+    listEl.innerHTML = '<div class="empty-note">Loading…</div>';
+    const q = query(collection(db, 'verified_sellers'), where('status', '==', 'pending'));
+    const snap = await getDocs(q);
+    if (snap.empty) {
+      listEl.innerHTML = '<div class="empty-note">No pending sellers.</div>';
+      return;
+    }
+    listEl.innerHTML = '';
+    snap.forEach(docSnap => {
+      const d = docSnap.data();
+      const card = document.createElement('div');
+      card.className = 'sub-card';
+      card.innerHTML = `
+        <div class="sub-name">${d.name}</div>
+        <div class="sub-note"><a href="${d.shopUrl}" target="_blank" rel="noopener" style="color: var(--flame);">${d.shopUrl}</a></div>
+        <div class="sub-actions">
+          <button class="approve-btn" data-id="${docSnap.id}" data-action="active">Approve</button>
+          <button class="reject-btn" data-id="${docSnap.id}" data-action="rejected">Reject</button>
+        </div>
+      `;
+      listEl.appendChild(card);
+    });
+
+    listEl.querySelectorAll('button[data-action]').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        await updateDoc(doc(db, 'verified_sellers', btn.dataset.id), { status: btn.dataset.action });
+        loadPendingSellers();
+      });
+    });
+  }
+
   document.getElementById('add-seller-btn').addEventListener('click', async () => {
     const name = document.getElementById('seller-name').value.trim();
     const shopUrl = document.getElementById('seller-url').value.trim();
@@ -190,7 +226,7 @@
       return;
     }
     try {
-      await addDoc(collection(db, 'verified_sellers'), { name, shopUrl, createdAt: serverTimestamp() });
+      await addDoc(collection(db, 'verified_sellers'), { name, shopUrl, status: 'active', createdAt: serverTimestamp() });
       statusEl.textContent = `✓ ${name} added to the directory.`;
       document.getElementById('seller-name').value = '';
       document.getElementById('seller-url').value = '';
