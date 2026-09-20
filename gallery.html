@@ -358,7 +358,7 @@
   async function loadGallery() {
     try {
       const q = query(
-        collection(db, 'verified_sellers'),
+        collection(db, 'gallery_submissions'),
         where('status', '==', 'approved'),
         orderBy('createdAt', 'desc'),
         limit(20)
@@ -386,7 +386,7 @@
   // ---- Load verified sellers ----
   async function loadSellers() {
     try {
-      const q = query(collection(db, 'verified_sellers'), orderBy('createdAt', 'desc'));
+      const q = query(collection(db, 'verified_sellers'), where('status', '==', 'active'), orderBy('createdAt', 'desc'));
       const snap = await getDocs(q);
       if (snap.empty) return;
       const list = document.getElementById('seller-list');
