@@ -77,7 +77,7 @@ exports.handler = async (event) => {
         await db.collection("verified_sellers").doc(session.subscription).set({
           name,
           shopUrl,
-          status: "active",
+          status: "pending", // awaiting admin approval in admin.html before showing publicly
           stripeCustomerId: session.customer || null,
           stripeSubscriptionId: session.subscription,
           createdAt: admin.firestore.FieldValue.serverTimestamp(),
