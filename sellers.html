@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sell on WickWise — Verified Sellers</title>
+<meta name="description" content="Become a verified seller on WickWise — sell candles or list your trusted local service. One-time $0.99 verification, $2.99/month. Seller applications opening soon.">
+<style>
+  :root {
+    --wax-dark: #1C140D;
+    --wax-panel: #2A1D12;
+    --wax-cream: #F2E6D3;
+    --wax-cream-dim: rgba(242, 230, 211, 0.65);
+    --flame: #E8A33D;
+    --ember: #C1592B;
+    --line: rgba(242, 230, 211, 0.14);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--wax-dark);
+    color: var(--wax-cream);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.5;
+    min-height: 100vh;
+    padding-bottom: 60px;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: Georgia, serif;
+    font-size: 1.25rem;
+    color: var(--wax-cream);
+    text-decoration: none;
+  }
+
+  .brand svg { width: 30px; height: 30px; }
+
+  .owl-eye { animation: ember-glow 3.4s ease-in-out infinite; }
+  @keyframes ember-glow {
+    0%, 100% { fill: var(--ember); opacity: 0.55; }
+    50%      { fill: var(--flame); opacity: 1; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .owl-eye { animation: none; fill: var(--flame); }
+  }
+
+  .top-nav { display: flex; align-items: center; gap: 16px; }
+  .top-nav a {
+    color: var(--wax-cream-dim);
+    text-decoration: none;
+    font-size: 0.85rem;
+  }
+  .top-nav a:hover { color: var(--flame); }
+
+  main {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 28px 20px;
+  }
+
+  .eyebrow {
+    color: var(--flame);
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  h1.hero {
+    font-family: Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(1.7rem, 6vw, 2.1rem);
+    line-height: 1.2;
+    margin-bottom: 14px;
+  }
+
+  .sub {
+    color: var(--wax-cream-dim);
+    font-size: 1rem;
+    margin-bottom: 28px;
+  }
+
+  .cards { display: grid; gap: 12px; margin-bottom: 32px; }
+
+  .card {
+    background: var(--wax-panel);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 18px;
+  }
+
+  .card h3 {
+    font-family: Georgia, serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: var(--flame);
+    margin-bottom: 6px;
+  }
+
+  .card p { color: var(--wax-cream-dim); font-size: 0.92rem; }
+  .card p strong { color: var(--wax-cream); }
+
+  h2.section {
+    font-family: Georgia, serif;
+    font-weight: 400;
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+  }
+
+  .lanes { display: grid; gap: 12px; margin-bottom: 32px; }
+
+  .lane {
+    background: var(--wax-panel);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 18px;
+  }
+
+  .lane h3 {
+    font-family: Georgia, serif;
+    font-weight: 400;
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+  }
+
+  .lane p { color: var(--wax-cream-dim); font-size: 0.92rem; margin-bottom: 8px; }
+  .lane p:last-child { margin-bottom: 0; }
+
+  .spotlight {
+    border: 1px solid var(--flame);
+    border-radius: 10px;
+    padding: 18px;
+    margin-bottom: 32px;
+    background: rgba(232, 163, 61, 0.06);
+  }
+
+  .spotlight .eyebrow { margin-bottom: 6px; }
+  .spotlight h3 {
+    font-family: Georgia, serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+  }
+  .spotlight p { color: var(--wax-cream-dim); font-size: 0.92rem; margin-bottom: 10px; }
+  .spotlight a { color: var(--flame); font-size: 0.92rem; }
+
+  .cta-box {
+    text-align: center;
+    padding: 24px 18px;
+    border-top: 1px solid var(--line);
+  }
+
+  .cta-box h2 {
+    font-family: Georgia, serif;
+    font-weight: 400;
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+  }
+
+  .cta-box p { color: var(--wax-cream-dim); font-size: 0.92rem; }
+
+  .fine {
+    text-align: center;
+    color: var(--wax-cream-dim);
+    font-size: 0.78rem;
+    opacity: 0.7;
+    margin-top: 24px;
+  }
+  .fine a { color: var(--wax-cream-dim); }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="brand" href="/" aria-label="WickWise home">
+    <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M60 18C36 18 22 38 22 64C22 90 38 106 60 106C82 106 98 90 98 64C98 38 84 18 60 18Z" fill="#2A1D12" stroke="#F2E6D3" stroke-opacity="0.15" stroke-width="1.5"/>
+      <path d="M34 30C30 20 28 12 30 6C36 12 40 20 42 28Z" fill="#2A1D12" stroke="#F2E6D3" stroke-opacity="0.15" stroke-width="1.5"/>
+      <path d="M86 30C90 20 92 12 90 6C84 12 80 20 78 28Z" fill="#2A1D12" stroke="#F2E6D3" stroke-opacity="0.15" stroke-width="1.5"/>
+      <ellipse cx="60" cy="62" rx="34" ry="30" fill="#1C140D"/>
+      <circle cx="46" cy="60" r="9" fill="#150F09"/>
+      <circle cx="74" cy="60" r="9" fill="#150F09"/>
+      <circle class="owl-eye" cx="46" cy="60" r="4.2"/>
+      <circle class="owl-eye" cx="74" cy="60" r="4.2" style="animation-delay: -1.7s;"/>
+      <path d="M60 70L54 80L60 78L66 80Z" fill="#E8A33D" opacity="0.85"/>
+    </svg>
+    WickWise
+  </a>
+  <nav class="top-nav">
+    <a href="/gallery">Gallery</a>
+  </nav>
+</header>
+
+<main>
+  <p class="eyebrow">Verified sellers</p>
+  <h1 class="hero">Sell where trust<br>is the product.</h1>
+  <p class="sub">WickWise is becoming a marketplace of verified sellers — candles, and the trusted local services our people actually need. No anonymous listings. Everybody here is somebody we stand behind.</p>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Verify once</h3>
+      <p><strong>$0.99 one-time</strong> card verification. Proves you're real, keeps the scammers out.</p>
+    </div>
+    <div class="card">
+      <h3>Stay verified</h3>
+      <p><strong>$2.99/month</strong> keeps your badge and your listing live in front of WickWise buyers.</p>
+    </div>
+    <div class="card">
+      <h3>Get found</h3>
+      <p>Buyers come for the candles and stay for everything else. Your listing sits where the trust already is.</p>
+    </div>
+  </div>
+
+  <h2 class="section">Two ways in</h2>
+  <div class="lanes">
+    <div class="lane">
+      <h3>🕯️ Sell candles</h3>
+      <p>Pour your own? List your candles alongside ours. Same verification, same badge, same buyers.</p>
+    </div>
+    <div class="lane">
+      <h3>🔧 Offer services</h3>
+      <p>Service sellers are vetted by hand: either we know you personally, or you work out a discount for WickWise-referred customers. That's what "vetted" means here — a real deal for our people.</p>
+    </div>
+  </div>
+
+  <div class="spotlight">
+    <p class="eyebrow">First vetted service</p>
+    <h3>Ward's Welding</h3>
+    <p>Mobile welder out of Statham, Georgia — repairs, fabrication, and more, done at your place. Our first vetted service seller.</p>
+    <a href="https://wards-welding.netlify.app">Visit Ward's Welding →</a>
+  </div>
+
+  <div class="cta-box">
+    <h2>Seller applications open soon.</h2>
+    <p>We're lining up our first verified sellers now. Check back — or keep an eye on the WickWise channels.</p>
+  </div>
+
+  <p class="fine">© 2026 WickWise · <a href="/">wickwise.shop</a></p>
+</main>
+
+</body>
+</html>
