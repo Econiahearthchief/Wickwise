@@ -1,0 +1,10 @@
+[build]
+  # Deploy only the server folder.
+  base = "server"
+  functions = "netlify/functions"
+
+[[redirects]]
+  # Route /api/* to the Express app (netlify/functions/api.js).
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
