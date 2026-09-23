@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join the WickWise Family — Ship Back Used Wax</title>
+<meta name="description" content="Join the WickWise Family: ship back used wax from any brand, keep it out of the landfill, and get recycled candles at half price. Family members get 50% of inbound shipping covered.">
+<style>
+  :root {
+    --wax-dark: #1C140D;
+    --wax-panel: #2A1D12;
+    --wax-cream: #F2E6D3;
+    --wax-cream-dim: rgba(242, 230, 211, 0.65);
+    --flame: #E8A33D;
+    --ember: #C1592B;
+    --line: rgba(242, 230, 211, 0.14);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--wax-dark);
+    color: var(--wax-cream);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.5;
+    min-height: 100vh;
+    padding-bottom: 60px;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: Georgia, serif;
+    font-size: 1.25rem;
+    color: var(--wax-cream);
+    text-decoration: none;
+  }
+
+  .brand svg { width: 30px; height: 30px; }
+
+  .owl-eye { animation: ember-glow 3.4s ease-in-out infinite; }
+  @keyframes ember-glow {
+    0%, 100% { fill: var(--ember); opacity: 0.55; }
+    50%      { fill: var(--flame); opacity: 1; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .owl-eye { animation: none; fill: var(--flame); }
+  }
+
+  .top-nav { display: flex; align-items: center; gap: 16px; }
+  .top-nav a {
+    color: var(--wax-cream-dim);
+    text-decoration: none;
+    font-size: 0.85rem;
+  }
+  .top-nav a:hover { color: var(--flame); }
+
+  main {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 28px 20px;
+  }
+
+  .eyebrow {
+    color: var(--flame);
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  h1.hero {
+    font-family: Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(1.7rem, 6vw, 2.1rem);
+    line-height: 1.2;
+    margin-bottom: 14px;
+  }
+
+  .sub {
+    color: var(--wax-cream-dim);
+    font-size: 1rem;
+    margin-bottom: 28px;
+  }
+
+  .cards { display: grid; gap: 12px; margin-bottom: 32px; }
+
+  .card {
+    background: var(--wax-panel);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 18px;
+  }
+
+  .card h3 {
+    font-family: Georgia, serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: var(--flame);
+    margin-bottom: 6px;
+  }
+
+  .card p { color: var(--wax-cream-dim); font-size: 0.92rem; }
+  .card p strong { color: var(--wax-cream); }
+
+  h2.section {
+    font-family: Georgia, serif;
+    font-weight: 400;
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+  }
+
+  .lanes { display: grid; gap: 12px; margin-bottom: 32px; }
+
+  .lane {
+    background: var(--wax-panel);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 18px;
+  }
+
+  .lane h3 {
+    font-family: Georgia, serif;
+    font-weight: 400;
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+  }
+
+  .lane p { color: var(--wax-cream-dim); font-size: 0.92rem; margin-bottom: 8px; }
+  .lane p:last-child { margin-bottom: 0; }
+  .lane p strong { color: var(--wax-cream); }
+
+  .note-box {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 32px;
+    background: rgba(232, 163, 61, 0.05);
+  }
+  .note-box p { color: var(--wax-cream-dim); font-size: 0.9rem; }
+  .note-box p strong { color: var(--wax-cream); }
+
+  .cta-box {
+    text-align: center;
+    padding: 24px 18px;
+    border-top: 1px solid var(--line);
+  }
+
+  .cta-box h2 {
+    font-family: Georgia, serif;
+    font-weight: 400;
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+  }
+
+  .cta-box p { color: var(--wax-cream-dim); font-size: 0.92rem; margin-bottom: 16px; }
+
+  .join-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+
+  .join-form input[type="email"] {
+    background: var(--wax-panel);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    color: var(--wax-cream);
+    padding: 12px 14px;
+    font-size: 1rem;
+    width: 100%;
+  }
+  .join-form input[type="email"]:focus {
+    outline: none;
+    border-color: var(--flame);
+  }
+  .join-form input[type="email"]::placeholder { color: var(--wax-cream-dim); opacity: 0.6; }
+
+  .join-form button {
+    background: var(--flame);
+    color: #1C140D;
+    border: none;
+    border-radius: 8px;
+    padding: 13px 14px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .join-form button:hover { background: #f0b459; }
+
+  #family-note {
+    margin-top: 12px;
+    font-size: 0.85rem;
+    color: var(--flame);
+    min-height: 1.2em;
+  }
+
+  .fine {
+    text-align: center;
+    color: var(--wax-cream-dim);
+    font-size: 0.78rem;
+    opacity: 0.7;
+    margin-top: 24px;
+  }
+  .fine a { color: var(--wax-cream-dim); }
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2552549628085051" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header>
+  <a class="brand" href="/" aria-label="WickWise home">
+    <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M60 18C36 18 22 38 22 64C22 90 38 106 60 106C82 106 98 90 98 64C98 38 84 18 60 18Z" fill="#2A1D12" stroke="#F2E6D3" stroke-opacity="0.15" stroke-width="1.5"/>
+      <path d="M34 30C30 20 28 12 30 6C36 12 40 20 42 28Z" fill="#2A1D12" stroke="#F2E6D3" stroke-opacity="0.15" stroke-width="1.5"/>
+      <path d="M86 30C90 20 92 12 90 6C84 12 80 20 78 28Z" fill="#2A1D12" stroke="#F2E6D3" stroke-opacity="0.15" stroke-width="1.5"/>
+      <ellipse cx="60" cy="62" rx="34" ry="30" fill="#1C140D"/>
+      <circle cx="46" cy="60" r="9" fill="#150F09"/>
+      <circle cx="74" cy="60" r="9" fill="#150F09"/>
+      <circle class="owl-eye" cx="46" cy="60" r="4.2"/>
+      <circle class="owl-eye" cx="74" cy="60" r="4.2" style="animation-delay: -1.7s;"/>
+      <path d="M60 70L54 80L60 78L66 80Z" fill="#E8A33D" opacity="0.85"/>
+    </svg>
+    WickWise
+  </a>
+  <nav class="top-nav">
+    <a href="/gallery">Gallery</a>
+  </nav>
+</header>
+
+<main>
+  <p class="eyebrow">The WickWise Family</p>
+  <h1 class="hero">Never throw a candle away again.</h1>
+  <p class="sub">Burn it down, ship the leftovers back, and we give that wax a second life as Family Blend — our recycled line at <strong style="color:var(--wax-cream);">half the price</strong> of a new candle. Any brand. Any wax. If it burned, we'll take it.</p>
+
+  <div class="cards">
+    <div class="card">
+      <h3>1 · Burn it down</h3>
+      <p>Enjoy your candle all the way to the bottom. Scrape out what's left — chunks, flakes, dusty bits, all of it counts.</p>
+    </div>
+    <div class="card">
+      <h3>2 · Ship it back</h3>
+      <p>Box up your leftover wax and send it our way. <strong>Family members get 50% of the shipping covered</strong> once they've bought their first candle from us.</p>
+    </div>
+    <div class="card">
+      <h3>3 · It comes back as candles</h3>
+      <p>Your old wax joins the Family Blend pool and comes back as recycled candles at <strong>half price</strong>. Nothing wasted.</p>
+    </div>
+  </div>
+
+  <h2 class="section">Two ways to send wax</h2>
+  <div class="lanes">
+    <div class="lane">
+      <h3>🕯️ Family members</h3>
+      <p>Bought your first candle from us? You're family. <strong>We cover 50% of the shipping</strong> to send your used wax in.</p>
+      <p>Family membership ($4.99/mo) also covers outbound shipping on your recycled candles.</p>
+    </div>
+    <div class="lane">
+      <h3>♻️ Just want it gone green</h3>
+      <p>Not a member yet, but hate the thought of good wax in a trashcan? Ship it at your own cost and we'll keep it out of the landfill — it feeds the same Family Blend pool.</p>
+    </div>
+  </div>
+
+  <div class="note-box">
+    <p><strong>Where do I ship it?</strong> We share the ship-to address by email — keeps things personal and our porch from overflowing. Join the list below and mention you've got wax ready; we'll reply with the address and packing tips.</p>
+  </div>
+
+  <div class="cta-box" id="join">
+    <h2>Join the Family waitlist.</h2>
+    <p>Our first pour is on the way. Join the list and you'll be first to know — first dibs on the flagship Coconut Vanilla and the recycled line.</p>
+    <form class="join-form" id="family-form">
+      <input type="email" id="family-email" placeholder="you@example.com" required aria-label="Email address">
+      <button type="submit">Join the Family</button>
+    </form>
+    <p id="family-note" role="status"></p>
+  </div>
+
+  <p class="fine">© 2026 WickWise · <a href="/">wickwise.shop</a></p>
+</main>
+
+<script>
+  document.getElementById('family-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = document.getElementById('family-email').value.trim();
+    if (!email) return;
+    var subject = encodeURIComponent('Family waitlist signup');
+    var body = encodeURIComponent('Hi WickWise!\n\nPlease add me to the Family waitlist.\n\nMy email: ' + email + '\n\nThanks!');
+    document.getElementById('family-note').textContent = 'Opening your email app — hit send and you\u2019re on the list.';
+    window.location.href = 'mailto:chief.econia@gmail.com?subject=' + subject + '&body=' + body;
+  });
+</script>
+
+</body>
+</html>
