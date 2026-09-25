@@ -474,6 +474,7 @@
 
 <nav class="tool-tabs" id="tool-tabs">
   <button class="tab-btn active" data-tab="batch">Batch Calculator</button>
+  <button class="tab-btn" data-tab="wickpicker">Wick Picker</button>
   <button class="tab-btn" data-tab="burntime">Burn Time</button>
   <button class="tab-btn" data-tab="pricing">Pricing</button>
   <button class="tab-btn" data-tab="waxmelts">Wax Melts</button>
@@ -623,6 +624,55 @@
       <a href="gallery.html" style="color:var(--flame); text-decoration:none; padding:12px 16px; border:1px solid var(--flame); border-radius:8px; font-size:0.9rem; text-align:center; background:rgba(232,163,61,0.08);">See what other makers built →</a>
     </div>
   </section>
+</div>
+
+<!-- WICK PICKER PANEL -->
+<div id="tab-wickpicker" class="tab-panel">
+  <h1 class="hero">Pick your wick size.</h1>
+  <p class="hero-sub">Cotton or wood, matched to your jar — with one size up and one down to test.</p>
+
+  <section class="step">
+    <p class="step-label">I &middot; Wick type</p>
+    <div class="intensity-row" id="wp-type-grid">
+      <div class="intensity-option" data-wptype="cotton" tabindex="0" role="button">🧵<br><small>Cotton</small></div>
+      <div class="intensity-option" data-wptype="wood" tabindex="0" role="button">🪵<br><small>Wood</small></div>
+    </div>
+  </section>
+
+  <section class="step" id="wp-family-step" style="display:none;">
+    <p class="step-label">II &middot; Cotton wick family</p>
+    <div class="intensity-row" id="wp-family-grid">
+      <div class="intensity-option" data-wpfamily="CD" tabindex="0" role="button"><strong>CD</strong><br><small>All-purpose, soy's best friend</small></div>
+      <div class="intensity-option" data-wpfamily="ECO" tabindex="0" role="button"><strong>ECO</strong><br><small>Cooler burn, clean soy</small></div>
+      <div class="intensity-option" data-wpfamily="HTP" tabindex="0" role="button"><strong>HTP</strong><br><small>Strong hot throw</small></div>
+    </div>
+  </section>
+
+  <section class="step">
+    <p class="step-label">III &middot; Jar inside diameter</p>
+    <label class="field-label" for="wp-diameter">Inside diameter (inches)</label>
+    <input type="number" id="wp-diameter" placeholder="e.g. 2.9" min="0.5" max="6" step="0.1">
+  </section>
+
+  <section class="step">
+    <p class="step-label">IV &middot; Wax type</p>
+    <div class="wax-grid" id="wp-wax-grid">
+      <div class="wax-option" data-wpwax="soy" tabindex="0" role="button"><span class="emoji">🌿</span>Soy</div>
+      <div class="wax-option" data-wpwax="paraffin" tabindex="0" role="button"><span class="emoji">🪨</span>Paraffin</div>
+      <div class="wax-option" data-wpwax="beeswax" tabindex="0" role="button"><span class="emoji">🍯</span>Beeswax</div>
+      <div class="wax-option" data-wpwax="coconut" tabindex="0" role="button"><span class="emoji">🥥</span>Coconut</div>
+      <div class="wax-option" data-wpwax="blend" tabindex="0" role="button"><span class="emoji">⚗️</span>Blend</div>
+    </div>
+  </section>
+
+  <button class="primary" id="wp-calc-btn" disabled>Pick my wick</button>
+
+  <div id="wp-results" style="display:none; margin-top: 32px; border-top: 1px solid var(--line); padding-top: 24px;">
+    <div class="result-row"><span class="rlabel">Start with</span><span class="rvalue" id="wp-r-start">—</span></div>
+    <div class="result-row"><span class="rlabel">Test one down</span><span class="rvalue" id="wp-r-down">—</span></div>
+    <div class="result-row"><span class="rlabel">Test one up</span><span class="rvalue" id="wp-r-up">—</span></div>
+    <div class="note-box" id="wp-note" style="margin-top:16px;"></div>
+  </div>
 </div>
 
 <!-- BURN TIME PANEL -->
@@ -1217,6 +1267,115 @@
       btn.classList.add('active');
       document.getElementById(`tab-${btn.dataset.tab}`).classList.add('active');
     });
+  });
+
+  // ---- Wick Picker ----
+  // Starting-point charts: container inside diameter (inches) -> test trio.
+  // Compiled from standard supplier wick charts (CD/ECO/HTP container ranges;
+  // wood-wick width/ply vs. diameter). Always a starting point — test burns decide.
+  const WICK_PICKER_CHARTS = {
+    CD: [
+      { max: 1.5, down: 'CD 4',  start: 'CD 6',  up: 'CD 8' },
+      { max: 2.0, down: 'CD 6',  start: 'CD 8',  up: 'CD 10' },
+      { max: 2.5, down: 'CD 10', start: 'CD 12', up: 'CD 14' },
+      { max: 3.0, down: 'CD 14', start: 'CD 16', up: 'CD 18' },
+      { max: 3.5, down: 'CD 18', start: 'CD 20', up: 'CD 22' },
+      { max: 4.0, down: 'CD 20', start: 'CD 22', up: '2 × CD 12' },
+      { max: 99,  down: '2 × CD 10', start: '2 × CD 12', up: '2 × CD 14' },
+    ],
+    ECO: [
+      { max: 1.5, down: '—',     start: 'ECO 2',  up: 'ECO 4' },
+      { max: 2.0, down: 'ECO 2', start: 'ECO 4',  up: 'ECO 6' },
+      { max: 2.5, down: 'ECO 6', start: 'ECO 8',  up: 'ECO 10' },
+      { max: 3.0, down: 'ECO 8', start: 'ECO 10', up: 'ECO 12' },
+      { max: 3.5, down: 'ECO 10', start: 'ECO 12', up: 'ECO 14' },
+      { max: 4.0, down: 'ECO 12', start: 'ECO 14', up: 'ECO 16' },
+      { max: 99,  down: '2 × ECO 8', start: '2 × ECO 10', up: '2 × ECO 12' },
+    ],
+    HTP: [
+      { max: 1.5, down: '—',      start: 'HTP 41', up: 'HTP 52' },
+      { max: 2.0, down: 'HTP 41', start: 'HTP 52', up: 'HTP 62' },
+      { max: 2.5, down: 'HTP 52', start: 'HTP 62', up: 'HTP 73' },
+      { max: 3.0, down: 'HTP 62', start: 'HTP 73', up: 'HTP 83' },
+      { max: 3.5, down: 'HTP 73', start: 'HTP 83', up: 'HTP 93' },
+      { max: 4.0, down: 'HTP 83', start: 'HTP 93', up: 'HTP 104' },
+      { max: 99,  down: '2 × HTP 62', start: '2 × HTP 73', up: '2 × HTP 83' },
+    ],
+    WOOD: [
+      { max: 2.0, down: '—', start: '0.5″ wide, single-ply', up: '0.5″ wide, double-ply (booster)' },
+      { max: 2.5, down: '0.5″ wide, single-ply', start: '0.625″ wide, single-ply', up: '0.625″ wide, double-ply (booster)' },
+      { max: 3.0, down: '0.625″ wide, single-ply', start: '0.75″ wide, single-ply', up: '0.75″ wide, double-ply (booster)' },
+      { max: 3.5, down: '0.75″ wide, single-ply', start: '0.75″ wide, double-ply (booster)', up: '2 × 0.5″ wide, single-ply' },
+      { max: 4.0, down: '0.75″ wide, double-ply (booster)', start: '2 × 0.625″ wide, single-ply', up: '2 × 0.75″ wide, single-ply' },
+      { max: 99,  down: '2 × 0.625″ wide, single-ply', start: '2 × 0.75″ wide, single-ply', up: '2 × 0.75″ wide, double-ply' },
+    ],
+  };
+
+  const WICK_WAX_TIPS = {
+    soy: 'Soy is what these charts assume — start here.',
+    paraffin: 'Paraffin melts easier than soy — if you see mushrooming or soot, try the size down first.',
+    beeswax: 'Beeswax is dense — if the melt pool stalls at the edges, try the size up first.',
+    coconut: 'Coconut wax is soft — if it burns hot or fast, try the size down first.',
+    blend: 'Blends vary by recipe — burn all three sizes and let the melt pool decide.',
+  };
+
+  let wpState = { type: null, family: null, diameter: null, wax: null };
+
+  function updateWpBtn() {
+    const ready = wpState.type && wpState.diameter > 0 && wpState.wax &&
+      (wpState.type === 'wood' || wpState.family);
+    document.getElementById('wp-calc-btn').disabled = !ready;
+  }
+
+  function wpSelect(gridId, attr, key) {
+    document.querySelectorAll(`#${gridId} .intensity-option, #${gridId} .wax-option`).forEach(el => {
+      const select = () => {
+        document.querySelectorAll(`#${gridId} .intensity-option, #${gridId} .wax-option`).forEach(o => o.classList.remove('selected'));
+        el.classList.add('selected');
+        wpState[key] = el.dataset[attr];
+        if (key === 'type') {
+          const showFamily = wpState.type === 'cotton';
+          document.getElementById('wp-family-step').style.display = showFamily ? '' : 'none';
+          if (!showFamily) {
+            wpState.family = null;
+            document.querySelectorAll('#wp-family-grid .intensity-option').forEach(o => o.classList.remove('selected'));
+          }
+        }
+        updateWpBtn();
+      };
+      el.addEventListener('click', select);
+      el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(); } });
+    });
+  }
+
+  wpSelect('wp-type-grid', 'wptype', 'type');
+  wpSelect('wp-family-grid', 'wpfamily', 'family');
+  wpSelect('wp-wax-grid', 'wpwax', 'wax');
+
+  document.getElementById('wp-diameter').addEventListener('input', (e) => {
+    wpState.diameter = parseFloat(e.target.value) || null;
+    updateWpBtn();
+  });
+
+  document.getElementById('wp-calc-btn').addEventListener('click', () => {
+    const key = wpState.type === 'wood' ? 'WOOD' : wpState.family;
+    const entry = WICK_PICKER_CHARTS[key].find(w => wpState.diameter <= w.max);
+
+    document.getElementById('wp-r-start').textContent = entry.start;
+    document.getElementById('wp-r-down').textContent = entry.down;
+    document.getElementById('wp-r-up').textContent = entry.up;
+
+    let note = 'Starting points from standard supplier charts — not guarantees. Fragrance load, fragrance type, and jar shape all shift wick performance. Burn-test each size: the winner gives a full melt pool in about 2–3 hours with no mushrooming, soot, or tunneling. ' + WICK_WAX_TIPS[wpState.wax];
+    if (entry.down === '—') {
+      note += ` There is no standard size below ${entry.start}, so test the start size and the size up.`;
+    }
+    if (wpState.type === 'wood') {
+      note += ' Wood-wick note: harder waxes (beeswax, paraffin) usually want the double-ply booster; soft waxes (coconut) usually burn fine on single-ply.';
+    }
+    document.getElementById('wp-note').textContent = note;
+
+    document.getElementById('wp-results').style.display = 'block';
+    document.getElementById('wp-results').scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 
   // ---- Burn Time calculator ----
