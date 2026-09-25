@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — WickWise</title>
+<meta name="description" content="Get in touch with WickWise — questions, corrections, or a calculator you wish existed.">
+<style>
+  :root {
+    --wax-dark: #1C140D;
+    --wax-panel: #2A1D12;
+    --wax-cream: #F2E6D3;
+    --wax-cream-dim: rgba(242, 230, 211, 0.65);
+    --flame: #E8A33D;
+    --ember: #C1592B;
+    --line: rgba(242, 230, 211, 0.14);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--wax-dark);
+    color: var(--wax-cream);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding-bottom: 60px;
+  }
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--line);
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: Georgia, serif;
+    font-size: 1.25rem;
+    color: var(--wax-cream);
+    text-decoration: none;
+  }
+  .brand svg { width: 30px; height: 30px; }
+  .top-nav { display: flex; align-items: center; gap: 16px; }
+  .top-nav a {
+    color: var(--wax-cream-dim);
+    text-decoration: none;
+    font-size: 0.85rem;
+  }
+  .top-nav a:hover { color: var(--flame); }
+  main {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 28px 20px;
+  }
+  .eyebrow {
+    color: var(--flame);
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  h1 {
+    font-family: Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(1.7rem, 6vw, 2.1rem);
+    line-height: 1.2;
+    margin-bottom: 14px;
+  }
+  .sub { color: var(--wax-cream-dim); font-size: 1rem; margin-bottom: 28px; }
+  .mail-card {
+    background: var(--wax-panel);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 22px 18px;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .mail-card p { color: var(--wax-cream-dim); font-size: 0.9rem; margin-bottom: 10px; }
+  .mail-card a {
+    color: var(--flame);
+    font-size: 1.05rem;
+    text-decoration: none;
+    word-break: break-all;
+  }
+  .mail-card a:hover { text-decoration: underline; }
+  .note { color: var(--wax-cream-dim); font-size: 0.9rem; }
+  .fine {
+    text-align: center;
+    color: var(--wax-cream-dim);
+    font-size: 0.78rem;
+    opacity: 0.7;
+    margin-top: 32px;
+  }
+  .fine a { color: var(--wax-cream-dim); text-decoration: none; margin: 0 8px; }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="brand" href="/" aria-label="WickWise home">
+    <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M60 18C36 18 22 38 22 64C22 90 38 106 60 106C82 106 98 90 98 64C98 38 84 18 60 18Z" fill="#2A1D12" stroke="#F2E6D3" stroke-opacity="0.15" stroke-width="1.5"/>
+      <ellipse cx="60" cy="62" rx="34" ry="30" fill="#1C140D"/>
+      <circle cx="46" cy="60" r="9" fill="#150F09"/>
+      <circle cx="74" cy="60" r="9" fill="#150F09"/>
+      <circle cx="46" cy="60" r="4.2" fill="#E8A33D"/>
+      <circle cx="74" cy="60" r="4.2" fill="#E8A33D"/>
+      <path d="M60 70L54 80L60 78L66 80Z" fill="#E8A33D" opacity="0.85"/>
+    </svg>
+    WickWise
+  </a>
+  <nav class="top-nav">
+    <a href="/">Calculators</a>
+    <a href="/gallery">Gallery</a>
+    <a href="/about">About</a>
+    <a href="/privacy">Privacy</a>
+  </nav>
+</header>
+
+<main>
+  <p class="eyebrow">Contact</p>
+  <h1>Talk to a human.</h1>
+  <p class="sub">Calculator bug, a correction, a guide request, or just want to talk candles — the inbox is open.</p>
+
+  <div class="mail-card">
+    <p>Email us anytime</p>
+    <a href="mailto:chief.econia@gmail.com">chief.econia@gmail.com</a>
+  </div>
+
+  <p class="note">We read everything. Replies usually land within a day or two — faster when the wax is melting and slower when it's pouring.</p>
+
+  <p class="fine">© 2026 WickWise · <a href="/">Home</a> <a href="/about">About</a> <a href="/contact">Contact</a> <a href="/privacy">Privacy</a></p>
+</main>
+
+</body>
+</html>
