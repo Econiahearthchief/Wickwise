@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Candle making troubleshooting guide — WickWise</title>
+<style>
+  :root {
+    --wax-dark: #1C140D; --wax-panel: #2A1D12; --wax-cream: #F2E6D3;
+    --wax-cream-dim: rgba(242, 230, 211, 0.65); --flame: #E8A33D;
+    --ember: #C1592B; --line: rgba(242, 230, 211, 0.14);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--wax-dark); color: var(--wax-cream);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6; min-height: 100vh; padding-bottom: 60px;
+  }
+  header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 20px; border-bottom: 1px solid var(--line);
+  }
+  .brand { display: flex; align-items: center; gap: 10px; font-family: Georgia, serif; font-size: 1.2rem; }
+  .brand svg { width: 28px; height: 28px; }
+  .owl-eye { animation: ember-glow 3.4s ease-in-out infinite; }
+  @keyframes ember-glow { 0%, 100% { fill: var(--ember); opacity: 0.55; } 50% { fill: var(--flame); opacity: 1; } }
+  nav.top-nav a { color: var(--wax-cream-dim); text-decoration: none; font-size: 0.85rem; margin-left: 16px; }
+  nav.top-nav a:hover { color: var(--flame); }
+  main { max-width: 560px; margin: 0 auto; padding: 32px 20px; }
+  main h1 { font-family: Georgia, serif; font-weight: 400; font-size: clamp(1.6rem, 6vw, 2rem); margin-bottom: 20px; }
+  main h2 { font-family: Georgia, serif; font-weight: 400; font-size: 1.25rem; color: var(--flame); margin: 32px 0 12px; }
+  main p { font-size: 0.95rem; color: var(--wax-cream-dim); margin-bottom: 14px; }
+  main ul, main ol { margin: 0 0 14px 20px; color: var(--wax-cream-dim); font-size: 0.95rem; }
+  main li { margin-bottom: 8px; }
+  main strong { color: var(--wax-cream); }
+  main code { background: var(--wax-panel); padding: 2px 6px; border-radius: 4px; font-size: 0.85em; }
+  main pre { background: var(--wax-panel); border: 1px solid var(--line); border-radius: 8px; padding: 14px; overflow-x: auto; margin-bottom: 14px; }
+  main pre code { background: none; padding: 0; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 0.85rem; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+  th { color: var(--wax-cream-dim); font-weight: 600; background: var(--wax-panel); }
+  .cross-links {
+    display: flex; gap: 10px; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--line);
+  }
+  .cross-links a {
+    flex: 1; text-align: center; padding: 14px; border: 1px solid var(--flame); border-radius: 8px;
+    color: var(--flame); text-decoration: none; font-size: 0.88rem;
+  }
+  .cross-links a:hover { background: rgba(232,163,61,0.1); }
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2552549628085051" crossorigin="anonymous"></script>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M60 18C36 18 22 38 22 64C22 90 38 106 60 106C82 106 98 90 98 64C98 38 84 18 60 18Z" fill="#2A1D12" stroke="#F2E6D3" stroke-opacity="0.15" stroke-width="1.5"/>
+      <path d="M34 30C30 20 28 12 30 6C36 12 40 20 42 28Z" fill="#2A1D12" stroke="#F2E6D3" stroke-opacity="0.15" stroke-width="1.5"/>
+      <path d="M86 30C90 20 92 12 90 6C84 12 80 20 78 28Z" fill="#2A1D12" stroke="#F2E6D3" stroke-opacity="0.15" stroke-width="1.5"/>
+      <ellipse cx="60" cy="62" rx="34" ry="30" fill="#1C140D"/>
+      <circle cx="46" cy="60" r="9" fill="#150F09"/><circle cx="74" cy="60" r="9" fill="#150F09"/>
+      <circle class="owl-eye" cx="46" cy="60" r="4.2"/><circle class="owl-eye" cx="74" cy="60" r="4.2" style="animation-delay: -1.7s;"/>
+      <path d="M60 70L54 80L60 78L66 80Z" fill="#E8A33D" opacity="0.85"/>
+    </svg>
+    WickWise
+  </div>
+  <nav class="top-nav">
+    <a href="index.html">Calculators</a>
+    <a href="gallery.html">Gallery</a>
+  </nav>
+</header>
+<main>
+<h1>Candle making troubleshooting guide</h1>
+<p>Something's wrong with your candle. Find the symptom below, understand why it happened, and fix it — or prevent it next batch. Organized by what you actually see, because that's how problems show up.</p>
+
+<h2>Sinkholes</h2>
+<p><strong>What you see:</strong> a dip or crater in the surface around the wick after the candle cools, sometimes with a hidden air pocket underneath.</p>
+<p><strong>Why it happens:</strong> wax shrinks as it cools, and it cools from the outside in. The center is the last part to set, so it pulls down as everything around it contracts. Moving the candle while it's setting, cooling it too fast (cold room, draft, refrigerator), or pouring too hot all make it worse.</p>
+<p><strong>The fix:</strong> poke relief holes around the wick with a skewer once the surface has set but the center is still soft, then do a second pour — a thin "repour" of the same wax to fill the holes and level the top. <strong>Prevention:</strong> cool at room temperature, undisturbed, away from drafts. Don't rush it.</p>
+
+<h2>Wet spots (poor adhesion)</h2>
+<p><strong>What you see:</strong> pale patches where the wax has pulled away from the glass, looking like air bubbles trapped against the container wall.</p>
+<p><strong>Why it happens:</strong> the wax cooled at a different rate than the glass, or the glass was cold when you poured. It's shrinkage again — the wax contracts and lets go of the wall in spots.</p>
+<p><strong>The fix:</strong> honestly, there isn't a reliable one after the fact — it's cosmetic and doesn't affect how the candle burns. <strong>Prevention:</strong> warm your containers slightly before pouring (a warm — not hot — oven for a few minutes works), pour at the right temperature for your wax, and cool slowly at room temperature. Some waxes are just prone to it; soy is notorious.</p>
+
+<h2>Frosting</h2>
+<p><strong>What you see:</strong> white, crystalline patches or a frosty film on the surface — most common on soy and other natural waxes.</p>
+<p><strong>Why it happens:</strong> natural waxes form crystal structures as they cool, and temperature swings during cooling or storage push those crystals to the surface. It's chemistry, not a mistake.</p>
+<p><strong>The fix:</strong> none needed — frosting is purely cosmetic and many buyers of natural candles expect it. <strong>Prevention (if it bothers you):</strong> pour cooler, cool slowly without temperature swings, and store finished candles away from heat and sunlight. A heat gun waved briefly over the surface can melt the frost layer smooth, but it'll often come back.</p>
+
+<h2>Tunneling</h2>
+<p><strong>What you see:</strong> the wick burns a narrow tunnel down the middle while a ring of hard wax stays stuck to the container walls.</p>
+<p><strong>Why it happens:</strong> the wick is too small for the container, or the first burn was too short to establish a full melt pool. Once a tunnel forms, every later burn follows the same path — the problem is permanent for that candle.</p>
+<p><strong>The fix:</strong> for a tunneled candle, you can sometimes rescue it by "hugging" — carefully folding aluminum foil around the top to reflect heat down and melt the walls — but it's a salvage job, not a cure. <strong>Prevention:</strong> size the wick to the container's inside diameter, and burn long enough on the first light to get a full edge-to-edge melt pool (roughly 1 hour per inch of diameter).</p>
+
+<h2>Weak hot throw</h2>
+<p><strong>What you see:</strong> the candle smells fine unlit but barely scents the room while burning.</p>
+<p><strong>Why it happens:</strong> run the checklist in order — (1) <strong>not cured yet:</strong> soy and coconut need 1–2 weeks for the fragrance to fully bind; testing early always underrates the candle. (2) <strong>Wick too small:</strong> an undersized wick can't build a hot enough melt pool to vaporize fragrance — the most common cause with a correct fragrance load. (3) <strong>Fragrance added too hot:</strong> above the wax's add-temperature range, volatile top notes evaporate before they bind. (4) <strong>Under-stirred:</strong> fragrance that isn't fully mixed distributes unevenly. (5) <strong>Room too big or drafty:</strong> one 8 oz candle won't scent a great room; that's physics, not failure.</p>
+<p><strong>The fix:</strong> cure fully first and retest — half of all "weak throw" complaints disappear after a proper cure. Then check wick size with a real test burn.</p>
+
+<h2>Weak cold throw</h2>
+<p><strong>What you see:</strong> you can barely smell the candle unlit, even after curing.</p>
+<p><strong>Why it happens:</strong> cold throw comes from fragrance oil near the wax surface. If the load is too low for the oil, if the oil itself is a weak performer, or if volatile notes flashed off during a too-hot pour, there's nothing at the surface to smell.</p>
+<p><strong>The fix:</strong> confirm your load math (fragrance weight ÷ total weight), make sure you poured in the wax's temperature window, and accept that some fragrance oils are just light — no amount of technique makes a weak oil strong. Test new oils in small batches before committing to a full run.</p>
+
+<h2>Soot and smoke</h2>
+<p><strong>What you see:</strong> black smoke from the flame, soot marks on the jar rim or walls.</p>
+<p><strong>Why it happens:</strong> incomplete combustion — the wick is drawing more fuel than the flame can burn cleanly. Causes: wick too large, wick too long (trim to ¼" before every burn), drafts whipping the flame, or a fragrance load so high the wick can't keep up.</p>
+<p><strong>The fix:</strong> trim first — it's free. If a properly trimmed wick still smokes, wick down one size. Burn away from vents, fans, and foot traffic.</p>
+
+<h2>Mushrooming wicks</h2>
+<p><strong>What you see:</strong> a black carbon ball — a "mushroom" — grows on the wick tip as it burns.</p>
+<p><strong>Why it happens:</strong> carbon buildup from a wick that's slightly too large, a wick left too long, or heavy fragrance oils that don't combust cleanly. A tiny bit of carbon on the tip is normal; a growing mushroom is a sizing signal.</p>
+<p><strong>The fix:</strong> trim the mushroom off and trim to ¼" before each burn. If it comes right back on a trimmed wick, go down one wick size — or try a cooler-burning family (ECO instead of CD) at the same size.</p>
+
+<h2>Sweating / seeping fragrance</h2>
+<p><strong>What you see:</strong> oily beads or a slick film on the candle's surface.</p>
+<p><strong>Why it happens:</strong> the fragrance load exceeded what that specific oil and wax combination can hold — the excess migrates out. Heavy, dense oils (vanilla, some woods) seep at lower percentages than light ones. Heat during storage accelerates it.</p>
+<p><strong>The fix:</strong> wipe the surface clean; the candle will still burn. <strong>Prevention:</strong> stay under the oil's real ceiling, not just the wax's generic max — check the supplier's IFRA data sheet for that specific oil. Drop a percentage point or two for heavy oils. Store finished candles cool.</p>
+
+<h2>Cracked tops</h2>
+<p><strong>What you see:</strong> the surface cracks as it sets, sometimes in a star pattern around the wick.</p>
+<p><strong>Why it happens:</strong> cooled too fast — cold room, draft, or moved while setting. The surface set while the interior was still contracting underneath, and something had to give.</p>
+<p><strong>The fix:</strong> a thin repour levels it. <strong>Prevention:</strong> room-temperature cooling, no drafts, don't touch it until fully set. Paraffin is more crack-prone than soy; pouring paraffin a little cooler helps.</p>
+
+<h2>Wick drowning</h2>
+<p><strong>What you see:</strong> the flame shrinks, gutters, and dies in its own melt pool — sometimes relights, then dies again.</p>
+<p><strong>Why it happens:</strong> the melt pool is delivering fuel faster than the wick can vaporize it. Usual suspects: wick too small for the fragrance load, fragrance load too high for the wick, or the wick trimmed too short to establish a proper flame.</p>
+<p><strong>The fix:</strong> pour off some melt pool and relight with a properly trimmed (¼") wick. For the next batch: wick up one size, reduce the load slightly, or both — especially with heavy oils.</p>
+
+<h2>Discoloration</h2>
+<p><strong>What you see:</strong> the wax yellows or darkens over time, or vanilla-scented candles turn brown.</p>
+<p><strong>Why it happens:</strong> two different things. General yellowing is usually light or heat exposure during storage. Vanilla browning is chemistry — vanillin oxidizes and darkens, and it will do it in every wax at every load. It's expected, not a defect.</p>
+<p><strong>The fix:</strong> store out of light and heat to slow yellowing. For vanilla: use a non-discoloring vanilla fragrance if the brown bothers you, or embrace it — customers who buy vanilla expect the color shift.</p>
+
+<h2>The meta-rule</h2>
+<p>Almost every problem on this page comes back to three variables: <strong>temperature</strong> (pour cool enough, cool slowly), <strong>wick size</strong> (chart, then test burn), and <strong>patience</strong> (cure fully before judging). Get those three right and most of this list never shows up.</p>
+<div class="cross-links">
+  <a href="guide-wick-selection.html">← Wick selection guide</a>
+  <a href="guide-curing-storage.html">Curing &amp; storage guide →</a>
+</div>
+</main>
+</body>
+</html>
