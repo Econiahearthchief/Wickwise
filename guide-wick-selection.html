@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Candle wick selection guide — WickWise</title>
+<style>
+  :root {
+    --wax-dark: #1C140D; --wax-panel: #2A1D12; --wax-cream: #F2E6D3;
+    --wax-cream-dim: rgba(242, 230, 211, 0.65); --flame: #E8A33D;
+    --ember: #C1592B; --line: rgba(242, 230, 211, 0.14);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--wax-dark); color: var(--wax-cream);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6; min-height: 100vh; padding-bottom: 60px;
+  }
+  header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 20px; border-bottom: 1px solid var(--line);
+  }
+  .brand { display: flex; align-items: center; gap: 10px; font-family: Georgia, serif; font-size: 1.2rem; }
+  .brand svg { width: 28px; height: 28px; }
+  .owl-eye { animation: ember-glow 3.4s ease-in-out infinite; }
+  @keyframes ember-glow { 0%, 100% { fill: var(--ember); opacity: 0.55; } 50% { fill: var(--flame); opacity: 1; } }
+  nav.top-nav a { color: var(--wax-cream-dim); text-decoration: none; font-size: 0.85rem; margin-left: 16px; }
+  nav.top-nav a:hover { color: var(--flame); }
+  main { max-width: 560px; margin: 0 auto; padding: 32px 20px; }
+  main h1 { font-family: Georgia, serif; font-weight: 400; font-size: clamp(1.6rem, 6vw, 2rem); margin-bottom: 20px; }
+  main h2 { font-family: Georgia, serif; font-weight: 400; font-size: 1.25rem; color: var(--flame); margin: 32px 0 12px; }
+  main p { font-size: 0.95rem; color: var(--wax-cream-dim); margin-bottom: 14px; }
+  main ul, main ol { margin: 0 0 14px 20px; color: var(--wax-cream-dim); font-size: 0.95rem; }
+  main li { margin-bottom: 8px; }
+  main strong { color: var(--wax-cream); }
+  main code { background: var(--wax-panel); padding: 2px 6px; border-radius: 4px; font-size: 0.85em; }
+  main pre { background: var(--wax-panel); border: 1px solid var(--line); border-radius: 8px; padding: 14px; overflow-x: auto; margin-bottom: 14px; }
+  main pre code { background: none; padding: 0; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 0.85rem; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+  th { color: var(--wax-cream-dim); font-weight: 600; background: var(--wax-panel); }
+  .cross-links {
+    display: flex; gap: 10px; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--line);
+  }
+  .cross-links a {
+    flex: 1; text-align: center; padding: 14px; border: 1px solid var(--flame); border-radius: 8px;
+    color: var(--flame); text-decoration: none; font-size: 0.88rem;
+  }
+  .cross-links a:hover { background: rgba(232,163,61,0.1); }
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2552549628085051" crossorigin="anonymous"></script>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M60 18C36 18 22 38 22 64C22 90 38 106 60 106C82 106 98 90 98 64C98 38 84 18 60 18Z" fill="#2A1D12" stroke="#F2E6D3" stroke-opacity="0.15" stroke-width="1.5"/>
+      <path d="M34 30C30 20 28 12 30 6C36 12 40 20 42 28Z" fill="#2A1D12" stroke="#F2E6D3" stroke-opacity="0.15" stroke-width="1.5"/>
+      <path d="M86 30C90 20 92 12 90 6C84 12 80 20 78 28Z" fill="#2A1D12" stroke="#F2E6D3" stroke-opacity="0.15" stroke-width="1.5"/>
+      <ellipse cx="60" cy="62" rx="34" ry="30" fill="#1C140D"/>
+      <circle cx="46" cy="60" r="9" fill="#150F09"/><circle cx="74" cy="60" r="9" fill="#150F09"/>
+      <circle class="owl-eye" cx="46" cy="60" r="4.2"/><circle class="owl-eye" cx="74" cy="60" r="4.2" style="animation-delay: -1.7s;"/>
+      <path d="M60 70L54 80L60 78L66 80Z" fill="#E8A33D" opacity="0.85"/>
+    </svg>
+    WickWise
+  </div>
+  <nav class="top-nav">
+    <a href="index.html">Calculators</a>
+    <a href="gallery.html">Gallery</a>
+  </nav>
+</header>
+<main>
+<h1>Candle wick selection guide</h1>
+<p>The wick is the engine of your candle. Wax, fragrance, and container all matter, but the wick decides whether the whole thing burns clean and throws scent — or tunnels, smokes, and drowns. Most "why is my candle weak" complaints trace back to the wick, not the fragrance. Here's how to pick the right one, size it to your container, and confirm it with a proper test burn.</p>
+
+<h2>Know the wick families</h2>
+<p>Wicks aren't interchangeable sizes of the same string. Each family is braided differently and burns differently. Pick the family for your wax first, then the size for your container.</p>
+<ul>
+<li><strong>CD (cored).</strong> The all-purpose workhorse. Braided around a core, self-trimming, steady flame. The default starting point for soy and soy blends, and fine in most container candles. If you only stock one family, make it CD.</li>
+<li><strong>ECO.</strong> A flat braid that runs a little cooler than CD. Often the best pick for 100% soy, which melts at lower temperatures and doesn't need as aggressive a flame. If your soy candle mushrooms or soots with a CD, try the same-size ECO before sizing down.</li>
+<li><strong>HTP (high-temperature paper).</strong> Built to produce a hotter melt pool, which means stronger hot throw. The go-to for paraffin and for heavily fragranced candles (10%+ loads) where you need extra heat to vaporize all that oil. Can run too hot for plain soy — don't default to it.</li>
+<li><strong>LX (paper-core flat braid).</strong> Very stable, consistent flame with minimal mushrooming. Popular in paraffin containers and pillars. A solid alternative when CD runs too hot and ECO runs too cool — it sits between them.</li>
+<li><strong>Wooden wicks.</strong> A different animal entirely: a thin strip of wood (usually cherry) that produces a wide, short flame and a soft crackle. Sized by width, not number — common widths run 0.625" to 0.75" for standard jars, wider for big vessels. They need a full melt pool like any wick, and wide containers often need a "booster" (a second thin strip laminated behind the main one). Trim with clippers, not a standard wick trimmer, and expect a learning curve: wooden wicks are fussier about fragrance load and need the wood fully saturated before the first light.</li>
+</ul>
+<p>A "CD-10" and an "ECO-10" are not the same wick and don't burn the same. Always match the family to your wax first, then size within that family.</p>
+
+<h2>Size by inside diameter, not jar size</h2>
+<p>Measure the <strong>inside</strong> diameter of your container at its widest point — the outside measurement lies to you by the thickness of the glass. Wick size follows the melt pool the wick can sustain, and that tracks diameter. This table gives starting points for the three most common families in container candles:</p>
+<table>
+<tr><th>Inside diameter</th><th>CD (soy/blends)</th><th>ECO (100% soy)</th><th>HTP (paraffin/heavy FO)</th></tr>
+<tr><td>1.5–2"</td><td>CD-4</td><td>ECO-2</td><td>HTP-52</td></tr>
+<tr><td>2–2.5"</td><td>CD-6</td><td>ECO-4</td><td>HTP-62</td></tr>
+<tr><td>2.5–3"</td><td>CD-8</td><td>ECO-6</td><td>HTP-73</td></tr>
+<tr><td>3–3.5"</td><td>CD-10</td><td>ECO-8</td><td>HTP-83</td></tr>
+<tr><td>3.5–4"</td><td>CD-12</td><td>ECO-10</td><td>HTP-105</td></tr>
+</table>
+<p>Two honest caveats. First, every supplier's chart differs slightly — use this as your starting point, then confirm with a test burn (below). Second, these assume a standard 6–10% fragrance load. Heavy loads change the math, which is the next section.</p>
+
+<h2>When to double-wick instead of sizing up</h2>
+<p>Around 4" of inside diameter, a single wick starts struggling: to melt edge-to-edge it has to burn so hot it smokes, mushrooms, and overheats the container. The fix isn't a bigger wick — it's two (or three) smaller ones.</p>
+<ul>
+<li><strong>Over ~4" diameter:</strong> double-wick. Two CD-6s will outperform one CD-14 every time — more even melt pool, less soot, safer container temperatures.</li>
+<li><strong>Over ~5" diameter:</strong> consider triple-wicking, or pick a narrower container. Very wide single vessels are expert territory.</li>
+<li><strong>Placement matters:</strong> space multiple wicks evenly — for two wicks, each sits about a third of the way in from opposite edges. Centered and symmetrical, or one side burns faster than the other.</li>
+<li><strong>Size each wick for its zone,</strong> not the whole jar. Each wick in a double-wick setup only needs to melt roughly half the surface. Start one to two sizes smaller than the single-wick chart suggests for that diameter.</li>
+</ul>
+
+<h2>Fragrance load changes the wick math</h2>
+<p>Fragrance oil is fuel. More of it in the wax means the wick has more to burn through — and some oils are harder to burn than others.</p>
+<ul>
+<li><strong>Higher load usually means wick up.</strong> Moving from 6% to 10% in the same jar often needs one size larger than the chart says. The chart assumes a middle-of-the-road load.</li>
+<li><strong>Heavy, dense oils clog wicks.</strong> Vanillas, ouds, and heavy bakery scents are notorious for this — the wick can't draw them up efficiently, so the flame starves even though the wick "should" be big enough. If a vanilla candle drowns on a wick that works fine for citrus, that's why. Wick up, or drop the load a point or two.</li>
+<li><strong>Light, volatile oils are the opposite.</strong> Citrus and light florals burn off easily — they rarely demand a bigger wick and sometimes let you size down.</li>
+<li><strong>Wax melts are exempt from all of this.</strong> No wick, no flame — melts can carry higher loads (up to 12–15% depending on wax) precisely because nothing has to burn the oil.</li>
+</ul>
+
+<h2>The test burn: the only sizing method that counts</h2>
+<p>Charts get you close. The test burn tells you the truth. Never judge a wick on the first light alone — run the full protocol:</p>
+<ol>
+<li><strong>Cure first.</strong> Test-burn on a fully cured candle — soy needs its 1–2 weeks. An uncured candle throws weak and burns differently, so testing early gives you false readings.</li>
+<li><strong>Trim to ¼ inch</strong> before every test burn. Wick length is a variable — control it.</li>
+<li><strong>Burn for 2 hours</strong> in a draft-free room. Then check the melt pool: it should reach nearly edge to edge (within about ¼" of the container wall) and be roughly ¼" to ½" deep.</li>
+<li><strong>Watch the flame.</strong> Healthy is 1 to 1.5 inches tall, steady, teardrop-shaped, with minimal flicker. A flame dancing around or leaning means drafts — or a wick fighting its load.</li>
+<li><strong>Check for soot</strong> on the container rim and any smoking during the burn. A little carbon on the wick tip is normal; a growing black mushroom is not.</li>
+<li><strong>Repeat on the second and third burns.</strong> A wick that looks perfect on burn one can tunnel by burn three. Judge the series, not a single session.</li>
+</ol>
+<p>If the melt pool doesn't reach the edge in 2–3 hours, the wick is too small — go up one size and retest. If it reaches the edge in under an hour with smoking or mushrooming, it's too big — go down one. Change one variable at a time.</p>
+
+<h2>Troubleshooting wick problems</h2>
+<ul>
+<li><strong>Tunneling (wick too small).</strong> The melt pool never reaches the container walls, leaving a ring of unmelted wax — a tunnel down the middle. Wasted wax, weak throw, and it gets worse every burn because the tunnel walls just keep standing. Fix: wick up one size. Prevention: full melt pool on the first burn (about 1 hour per inch of container diameter).</li>
+<li><strong>Mushrooming and soot (wick too big).</strong> A black carbon ball grows on the wick tip, the flame smokes, and soot marks the jar rim. The wick is drawing more fuel than it can burn cleanly. Fix: wick down one size — and trim to ¼" before every burn, because even a correct wick mushrooms if you let it grow long.</li>
+<li><strong>Drowning (wick too small for the load, or load too high).</strong> The flame shrinks, sputters, and dies in its own melt pool. The wick can't vaporize fuel as fast as the pool delivers it. Common with heavy fragrance oils at high loads. Fix: wick up, reduce the fragrance load a percent or two, or both. Also check you didn't trim the wick too short — below ¼" a wick can't establish its flame at all.</li>
+<li><strong>Flickering and dancing flame.</strong> Usually drafts — move the candle. If there's no draft, the wick may be off-center or the fragrance load uneven (under-stirred). Re-center wicks before pouring, not after.</li>
+</ul>
+<p>Wick selection is the single highest-leverage decision in a candle. Get it right and everything else — fragrance, wax, container — gets to do its job. Get it wrong and nothing else can compensate.</p>
+<div class="cross-links">
+  <a href="guide-troubleshooting.html">Wick still misbehaving? Troubleshoot →</a>
+  <a href="index.html">← Size it with the calculators</a>
+</div>
+</main>
+</body>
+</html>
