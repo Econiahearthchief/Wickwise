@@ -36,6 +36,26 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.wickwise.shop/guide-wick-selection.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.wickwise.shop/guide-troubleshooting.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.wickwise.shop/guide-scent-blending.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.wickwise.shop/guide-curing-storage.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.wickwise.shop/about.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
