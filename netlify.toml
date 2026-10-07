@@ -12,6 +12,26 @@
 [functions]
   node_bundler = "esbuild"
 
+# Canonical domain: everything collapses to https://www.wickwise.shop/ in ONE hop.
+# (Placed first — Netlify evaluates redirects top-down, first match wins.)
+[[redirects]]
+  from = "http://wickwise.shop/*"
+  to = "https://www.wickwise.shop/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.wickwise.shop/*"
+  to = "https://www.wickwise.shop/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://wickwise.shop/*"
+  to = "https://www.wickwise.shop/:splat"
+  status = 301
+  force = true
+
 # Stripe webhooks need the raw request body — do not let Netlify's default
 # body parsing/redirect rules touch this path.
 [[redirects]]
