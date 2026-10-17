@@ -282,27 +282,13 @@
   <div class="cta-box" id="join">
     <h2>Join the Family waitlist.</h2>
     <p>Our first pour is on the way. Join the list and you'll be first to know — first dibs on the flagship Coconut Vanilla and the recycled line. Plus: once the first lot is fully claimed, everyone on the waitlist gets a <strong style="color:var(--wax-cream);">discounted shipping rate</strong> on their order.</p>
-    <form class="join-form" id="family-form">
-      <input type="email" id="family-email" placeholder="you@example.com" required aria-label="Email address">
-      <button type="submit">Join the Family</button>
-    </form>
-    <p id="family-note" role="status"></p>
+    <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="746208ff-1f5f-4750-a856-a90a0323f7fd"></script>
   </div>
 
   <p class="fine">© 2026 WickWise · <a href="/">wickwise.shop</a></p>
 </main>
 
-<script>
-  document.getElementById('family-form').addEventListener('submit', function (e) {
-    e.preventDefault();
-    var email = document.getElementById('family-email').value.trim();
-    if (!email) return;
-    var subject = encodeURIComponent('Family waitlist signup');
-    var body = encodeURIComponent('Hi WickWise!\n\nPlease add me to the Family waitlist.\n\nMy email: ' + email + '\n\nThanks!');
-    document.getElementById('family-note').textContent = 'Opening your email app — hit send and you\u2019re on the list.';
-    window.location.href = 'mailto:chief.econia@gmail.com?subject=' + subject + '&body=' + body;
-  });
-</script>
+<script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
 
 </body>
 </html>
