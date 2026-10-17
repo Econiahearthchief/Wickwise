@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free Candle Making Calculator — Fragrance Oil, Wax & Wick Ratios | WickWise</title>
+<title>Free Candle Making Calculator — Fragrance Oil, Wax & Wick Ratios | WickWise.shop</title>
 <meta name="description" content="Free candle making calculator: exact fragrance oil, wax, and wick sizes for soy, paraffin, beeswax, coconut & blends. No guesswork — measure, pour, done.">
-<link rel="canonical" href="https://www.wickwise.shop/index.html">
+<link rel="canonical" href="https://www.wickwise.shop/">
 <style>
   :root {
     --wax-dark: #1C140D;
@@ -488,8 +488,8 @@
 </nav>
 
 <div id="tab-batch" class="tab-panel active">
-  <h1 class="hero">Get your ratios right.</h1>
-  <p class="hero-sub">Wax, fragrance, and wick — measured, not guessed.</p>
+  <h1 class="hero">Free Candle Making Calculator</h1>
+  <p class="hero-sub">Get your ratios right — wax, fragrance, and wick, measured, not guessed.</p>
 
   <section class="step">
     <p class="step-label">I &middot; Choose your wax</p>
@@ -571,14 +571,29 @@
     <h2 class="section-title">Wax reference, by type</h2>
     <p class="section-sub">Fill factor and max fragrance load vary by wax — a flat 0.86 or flat 8% doesn't hold across all five. Here's what each one actually takes.</p>
     <div class="ref-table">
-      <div class="ref-row ref-head"><span>Wax</span><span>Fill factor</span><span>Max load</span><span>Add / pour</span></div>
+      <div class="ref-row ref-head"><span>Wax</span><span>Fill factor</span><span>Max load (typical)</span><span>Add / pour</span></div>
       <div class="ref-row"><span>Soy</span><span>0.86</span><span>10%</span><span>130–140°F / 120–130°F</span></div>
       <div class="ref-row"><span>Paraffin</span><span>0.90</span><span>12%</span><span>180–185°F / 160–170°F</span></div>
       <div class="ref-row"><span>Beeswax</span><span>0.95</span><span>6%</span><span>160–170°F / 150–160°F</span></div>
       <div class="ref-row"><span>Coconut</span><span>0.85</span><span>10%</span><span>105–115°F / 100–110°F</span></div>
       <div class="ref-row"><span>Blend</span><span>0.88</span><span>10%</span><span>150–160°F / 135–145°F</span></div>
     </div>
-    <p class="ref-footnote">Max load is a common industry ceiling, not a universal rule — always check your specific fragrance oil supplier's IFRA-compliant max usage rate, which can be lower than your wax's general limit depending on the scent's ingredients.</p>
+    <p class="ref-footnote">Table values are typical ranges, not guarantees — max fragrance load is product-dependent and varies by specific wax. <strong>Your wax supplier's spec sheet takes priority:</strong> if it lists 8–10% and the table says 12%, use 8–10%. Always check your specific fragrance oil's IFRA-compliant max usage rate too, which can be lower than your wax's general limit depending on the scent's ingredients. Reference points: CandleScience lists up to 10% fragrance load for soy waxes (<a href="https://www.candlescience.com/lab-notes-candlescience-simplysoy-artisan-wax/" style="color:var(--flame);">SimplySoy lab notes</a>) and advises staying at or under 10% even when a wax claims more; Lone Star Candle Supply lists 9–11% max load for Golden Brands 444 soy (<a href="https://lonestarcandlesupply.com/golden-brands-444-enhanced-soy-container-wax/" style="color:var(--flame);">wax specs</a>) and 8–10% for IGI 4633 paraffin blend (<a href="https://lonestarcandlesupply.com/igi-4633-container-blend-wax-j-223" style="color:var(--flame);">wax specs</a>). For wick starting points by jar diameter, see Lone Star's <a href="https://www.lonestarcandlesupply.com/candle-making/candle-wicks/guide-to-wicking" style="color:var(--flame);">guide to wicking</a>.</p>
+  </section>
+
+  <section class="reference-section">
+    <h2 class="section-title">Show the math: one worked batch</h2>
+    <p class="section-sub">Every number below follows this calculator's exact formulas — run the same inputs and you'll get the same results.</p>
+    <div class="ref-table">
+      <div class="ref-row"><span><strong>Inputs</strong></span><span>Soy wax · 8 fl oz container · 2.5–3 in diameter · Medium intensity · 4 candles</span></div>
+      <div class="ref-row"><span>1 · Wax per candle</span><span>8 fl oz × 0.86 (soy fill factor) = <strong>6.88 oz</strong></span></div>
+      <div class="ref-row"><span>2 · Fragrance load</span><span>10% (soy max) × 0.80 (medium intensity) = <strong>8.0%</strong></span></div>
+      <div class="ref-row"><span>3 · Fragrance per candle</span><span>6.88 oz × 8.0% = <strong>0.55 oz</strong></span></div>
+      <div class="ref-row"><span>4 · Batch totals (×4)</span><span>Wax <strong>27.52 oz</strong> · Fragrance oil <strong>2.20 oz</strong></span></div>
+      <div class="ref-row"><span>5 · Wick</span><span>2.5–3 in diameter → <strong>CD-18</strong></span></div>
+      <div class="ref-row"><span>6 · Temperatures</span><span>Add fragrance <strong>130–140°F</strong> · Pour <strong>120–130°F</strong></span></div>
+    </div>
+    <p class="ref-footnote">Assumptions: fragrance percentage is calculated on wax weight, not total batch weight; container capacity in fluid ounces converts to wax weight via the fill factor; intensity scales the wax's max load (Light 55%, Medium 80%, Strong 100%); wick size follows jar inside diameter. Always test-burn before a full production batch.</p>
   </section>
 
   <section class="faq-section">
@@ -702,10 +717,11 @@
   <section class="step">
     <p class="step-label">III &middot; Target profit margin</p>
     <label class="field-label" for="pr-margin">Target margin (%)</label>
-    <input type="number" id="pr-margin" placeholder="e.g. 60" min="1" max="95" step="1">
+    <input type="number" id="pr-margin" placeholder="e.g. 60" min="0" max="99" step="1">
   </section>
 
   <button class="primary" id="pr-calc-btn">Calculate my prices</button>
+  <p id="pr-error" style="display:none; color:#e07856; font-size:0.85rem; margin-top:12px; text-align:center;"></p>
 
   <div id="pr-results" style="display:none; margin-top: 32px; border-top: 1px solid var(--line); padding-top: 24px;">
     <div class="result-grid">
@@ -860,6 +876,7 @@
   </section>
 
   <button class="primary" id="blend-calc-btn" disabled>Calculate blend amounts</button>
+  <p id="blend-error" style="display:none; color:#e07856; font-size:0.85rem; margin-top:12px; text-align:center;"></p>
 
   <div id="blend-results" style="display:none; margin-top: 32px; border-top: 1px solid var(--line); padding-top: 24px;">
     <div class="result-grid">
@@ -892,6 +909,7 @@
   </section>
 
   <button class="primary" id="notes-calc-btn" disabled>Calculate my blend</button>
+  <p id="notes-error" style="display:none; color:#e07856; font-size:0.85rem; margin-top:12px; text-align:center;"></p>
 
   <div id="notes-results" style="display:none; margin-top: 32px; border-top: 1px solid var(--line); padding-top: 24px;">
     <div class="result-grid">
@@ -1055,9 +1073,14 @@
   // ---- State ----
   let state = { wax: null, capacity: null, diameter: null, intensity: null, qty: 1 };
 
+  // Disabling a tool's button also clears its stale results.
+  function setToolBtn(btnId, resultsId, enabled) {
+    document.getElementById(btnId).disabled = !enabled;
+    if (!enabled) document.getElementById(resultsId).style.display = 'none';
+  }
   function updateCalcBtn() {
     const ready = state.wax && state.capacity > 0 && state.diameter && state.intensity;
-    document.getElementById('calc-btn').disabled = !ready;
+    setToolBtn('calc-btn', 'results', ready);
   }
 
   document.querySelectorAll('.wax-option').forEach(el => {
@@ -1230,7 +1253,7 @@
   let btState = { wax: null, weight: null, wickFactor: 1 };
 
   function updateBtBtn() {
-    document.getElementById('bt-calc-btn').disabled = !(btState.wax && btState.weight > 0);
+    setToolBtn('bt-calc-btn', 'bt-results', btState.wax && btState.weight > 0);
   }
 
   document.querySelectorAll('#bt-wax-grid .wax-option').forEach(el => {
@@ -1265,11 +1288,37 @@
   function num(id) { return parseFloat(document.getElementById(id).value) || 0; }
 
   document.getElementById('pr-calc-btn').addEventListener('click', () => {
+    const errEl = document.getElementById('pr-error');
+    const showError = (msg) => {
+      errEl.textContent = msg;
+      errEl.style.display = 'block';
+      document.getElementById('pr-results').style.display = 'none';
+    };
+    // Negative costs are input errors, not zeros — ask for correction.
+    const costFields = [
+      ['pr-wax', 'Wax cost'], ['pr-fragrance', 'Fragrance oil'], ['pr-jar', 'Container / jar'],
+      ['pr-wick', 'Wick(s)'], ['pr-label', 'Label & packaging'],
+      ['pr-time', 'Time to make'], ['pr-rate', 'Hourly rate'], ['pr-overhead', 'Overhead per candle']
+    ];
+    const negatives = costFields.filter(([id]) => num(id) < 0).map(([, label]) => label);
+    if (negatives.length) {
+      showError(`Costs can't be negative — please fix: ${negatives.join(', ')}.`);
+      return;
+    }
     const materials = num('pr-wax') + num('pr-fragrance') + num('pr-jar') + num('pr-wick') + num('pr-label');
     const laborCost = (num('pr-time') / 60) * num('pr-rate');
     const overhead = num('pr-overhead');
     const cogs = materials + laborCost + overhead;
-    const margin = Math.min(Math.max(num('pr-margin') || 60, 1), 95) / 100;
+
+    // Margin: empty field defaults to 60; an explicit 0 is valid (price = cost).
+    const marginRaw = document.getElementById('pr-margin').value.trim();
+    const marginPct = marginRaw === '' ? 60 : parseFloat(marginRaw);
+    if (!isFinite(marginPct) || marginPct < 0 || marginPct >= 100) {
+      showError('Target margin must be between 0% and 99% — 100% margin would make the price infinite.');
+      return;
+    }
+    errEl.style.display = 'none';
+    const margin = marginPct / 100;
 
     const retail = cogs / (1 - margin);
     const etsy = retail * 1.10; // covers ~6.5% + 3% + $0.25 fees, rounded up
@@ -1288,7 +1337,7 @@
   let wmState = { wax: null, weight: null, count: null, level: null };
 
   function updateWmBtn() {
-    document.getElementById('wm-calc-btn').disabled = !(wmState.wax && wmState.weight > 0 && wmState.count > 0 && wmState.level);
+    setToolBtn('wm-calc-btn', 'wm-results', wmState.wax && wmState.weight > 0 && wmState.count > 0 && wmState.level);
   }
   document.querySelectorAll('#wm-wax-grid .wax-option').forEach(el => {
     el.addEventListener('click', () => {
@@ -1322,7 +1371,7 @@
   let dyeState = { weight: null, type: null, depth: null };
 
   function updateDyeBtn() {
-    document.getElementById('dye-calc-btn').disabled = !(dyeState.weight > 0 && dyeState.type && dyeState.depth);
+    setToolBtn('dye-calc-btn', 'dye-results', dyeState.weight > 0 && dyeState.type && dyeState.depth);
   }
   document.getElementById('dye-weight').addEventListener('input', e => { dyeState.weight = parseFloat(e.target.value) || null; updateDyeBtn(); });
   document.querySelectorAll('#dye-type-grid .intensity-option').forEach(el => {
@@ -1362,7 +1411,7 @@
   let coolState = { wax: null, container: null, room: null };
 
   function updateCoolBtn() {
-    document.getElementById('cool-calc-btn').disabled = !(coolState.wax && coolState.container && coolState.room);
+    setToolBtn('cool-calc-btn', 'cool-results', coolState.wax && coolState.container && coolState.room);
   }
   document.querySelectorAll('#cool-wax-grid .wax-option').forEach(el => {
     el.addEventListener('click', () => {
@@ -1399,16 +1448,25 @@
     const w = parseFloat(document.getElementById('blend-weight').value);
     const p1 = parseFloat(document.getElementById('blend-pct1').value);
     const p2 = parseFloat(document.getElementById('blend-pct2').value);
-    document.getElementById('blend-calc-btn').disabled = !(w > 0 && p1 >= 0 && p2 >= 0 && (p1 + p2) > 0);
+    document.getElementById('blend-error').style.display = 'none';
+    setToolBtn('blend-calc-btn', 'blend-results', w > 0 && p1 >= 0 && p2 >= 0 && (p1 + p2) > 0);
   }
   ['blend-weight', 'blend-pct1', 'blend-pct2'].forEach(id => {
     document.getElementById(id).addEventListener('input', updateBlendBtn);
   });
   document.getElementById('blend-calc-btn').addEventListener('click', () => {
+    const errEl = document.getElementById('blend-error');
     const w = parseFloat(document.getElementById('blend-weight').value);
     const p1 = parseFloat(document.getElementById('blend-pct1').value) || 0;
     const p2 = parseFloat(document.getElementById('blend-pct2').value) || 0;
     const total = p1 + p2;
+    if (Math.abs(total - 100) > 0.01) {
+      errEl.textContent = `Percentages must total 100% — yours add up to ${+total.toFixed(2)}%. Fix the split and try again.`;
+      errEl.style.display = 'block';
+      document.getElementById('blend-results').style.display = 'none';
+      return;
+    }
+    errEl.style.display = 'none';
     const amt1 = w * (p1 / total);
     const amt2 = w * (p2 / total);
     document.getElementById('blend-r-1').textContent = `${amt1.toFixed(2)} oz`;
@@ -1422,17 +1480,26 @@
     const t = parseFloat(document.getElementById('notes-top').value) || 0;
     const m = parseFloat(document.getElementById('notes-mid').value) || 0;
     const b = parseFloat(document.getElementById('notes-base').value) || 0;
-    document.getElementById('notes-calc-btn').disabled = !(total > 0 && (t + m + b) > 0);
+    document.getElementById('notes-error').style.display = 'none';
+    setToolBtn('notes-calc-btn', 'notes-results', total > 0 && (t + m + b) > 0);
   }
   ['notes-total', 'notes-top', 'notes-mid', 'notes-base'].forEach(id => {
     document.getElementById(id).addEventListener('input', updateNotesBtn);
   });
   document.getElementById('notes-calc-btn').addEventListener('click', () => {
+    const errEl = document.getElementById('notes-error');
     const total = parseFloat(document.getElementById('notes-total').value);
     const t = parseFloat(document.getElementById('notes-top').value) || 0;
     const m = parseFloat(document.getElementById('notes-mid').value) || 0;
     const b = parseFloat(document.getElementById('notes-base').value) || 0;
     const sum = t + m + b;
+    if (Math.abs(sum - 100) > 0.01) {
+      errEl.textContent = `Percentages must total 100% — yours add up to ${+sum.toFixed(2)}%. Fix the split and try again.`;
+      errEl.style.display = 'block';
+      document.getElementById('notes-results').style.display = 'none';
+      return;
+    }
+    errEl.style.display = 'none';
     document.getElementById('notes-r-top').textContent = `${(total * (t/sum)).toFixed(2)} oz`;
     document.getElementById('notes-r-mid').textContent = `${(total * (m/sum)).toFixed(2)} oz`;
     document.getElementById('notes-r-base').textContent = `${(total * (b/sum)).toFixed(2)} oz`;
@@ -1449,7 +1516,7 @@
   function updateSprayBtn() {
     const size = parseFloat(document.getElementById('spray-size').value);
     const count = parseFloat(document.getElementById('spray-count').value);
-    document.getElementById('spray-calc-btn').disabled = !(size > 0 && count > 0);
+    setToolBtn('spray-calc-btn', 'spray-results', size > 0 && count > 0);
   }
   document.getElementById('spray-size').addEventListener('input', updateSprayBtn);
   document.getElementById('spray-count').addEventListener('input', updateSprayBtn);
@@ -1486,12 +1553,19 @@
   });
 </script>
 
+<section style="max-width:720px; margin:48px auto 0; padding:28px 20px; border:1px solid rgba(242,230,211,0.18); border-radius:14px; text-align:center;">
+  <h2 style="margin:0 0 8px; font-size:1.35rem;">The WickWise Letter</h2>
+  <p style="margin:0 auto 16px; max-width:520px; color: var(--wax-cream-dim); font-size:0.95rem;">Candle-making know-how for beginners and side-hustle makers — honest gear guidance, batch math, and fixes for the mistakes that ruin candles. Free, straight to your inbox.</p>
+  <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="746208ff-1f5f-4750-a856-a90a0323f7fd"></script>
+</section>
+
 <footer style="max-width:720px; margin:40px auto 0; padding:24px 20px; border-top:1px solid rgba(242,230,211,0.14); text-align:center;">
   <a href="about.html" style="color: var(--wax-cream-dim); text-decoration:none; font-size:0.85rem; margin:0 10px;">About</a>
   <a href="contact.html" style="color: var(--wax-cream-dim); text-decoration:none; font-size:0.85rem; margin:0 10px;">Contact</a>
   <a href="privacy.html" style="color: var(--wax-cream-dim); text-decoration:none; font-size:0.85rem; margin:0 10px;">Privacy</a>
-  <p style="color: var(--wax-cream-dim); opacity:0.6; font-size:0.78rem; margin-top:12px;">© 2026 WickWise</p>
+  <p style="color: var(--wax-cream-dim); opacity:0.6; font-size:0.78rem; margin-top:12px;">© 2026 WickWise.shop — Free Candle Wax &amp; Fragrance Calculator</p>
 </footer>
 
+<script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
 </body>
 </html>
