@@ -514,17 +514,9 @@
     <p class="step-label">II &middot; Container details</p>
     <label class="field-label" for="capacity">Container capacity (fl oz)</label>
     <input type="number" id="capacity" placeholder="e.g. 8" min="0.1" step="0.1">
-    <label class="field-label" for="diameter">Jar inside diameter</label>
-    <select id="diameter">
-      <option value="">Select diameter</option>
-      <option value="1.5">Under 1.5 in (tiny)</option>
-      <option value="2">1.5 – 2 in</option>
-      <option value="2.5">2 – 2.5 in</option>
-      <option value="3">2.5 – 3 in</option>
-      <option value="3.5">3 – 3.5 in</option>
-      <option value="4">3.5 – 4 in</option>
-      <option value="5">Over 4 in (wide)</option>
-    </select>
+    <label class="field-label" for="diameter">Jar inside diameter (inches)</label>
+    <input type="number" id="diameter" placeholder="e.g. 3.06" min="0.5" max="8" step="0.01">
+    <p style="font-size:0.82rem; opacity:0.75; margin-top:6px;">Measure across the inside at the top and enter the exact number — your caliper's figure, not a range. Wick size is read off your real diameter.</p>
     <label class="field-label">Fill level</label>
     <div class="intensity-row" id="fill-grid">
       <div class="intensity-option selected" data-fill="standard" tabindex="0" role="button">Standard pour — leaves headspace</div>
@@ -601,15 +593,15 @@
     <h2 class="section-title">Show the math: one worked batch</h2>
     <p class="section-sub">Every number below follows this calculator's exact formulas — run the same inputs and you'll get the same results.</p>
     <div class="ref-table">
-      <div class="ref-row"><span><strong>Inputs</strong></span><span>Soy wax · 8 fl oz container · 2.5–3 in diameter · Medium intensity · 4 candles</span></div>
+      <div class="ref-row"><span><strong>Inputs</strong></span><span>Soy wax · 8 fl oz container · 3 in inside diameter · Medium intensity · 4 candles</span></div>
       <div class="ref-row"><span>1 · Wax per candle</span><span>8 fl oz × 0.94 (standard fill — leaves headspace) × 0.86 (soy fill factor) = <strong>6.47 oz</strong></span></div>
       <div class="ref-row"><span>2 · Fragrance load</span><span>10% (soy max) × 0.80 (medium intensity) = <strong>8.0%</strong></span></div>
       <div class="ref-row"><span>3 · Fragrance per candle</span><span>6.47 oz × 8.0% = <strong>0.52 oz</strong></span></div>
       <div class="ref-row"><span>4 · Batch totals (×4)</span><span>Wax <strong>25.87 oz</strong> · Fragrance oil <strong>2.07 oz</strong></span></div>
-      <div class="ref-row"><span>5 · Wick</span><span>2.5–3 in diameter → <strong>CD-18</strong></span></div>
+      <div class="ref-row"><span>5 · Wick</span><span>3 in diameter → <strong>CD-18</strong></span></div>
       <div class="ref-row"><span>6 · Temperatures</span><span>Add fragrance <strong>130–140°F</strong> · Pour <strong>120–130°F</strong></span></div>
     </div>
-    <p class="ref-footnote">Assumptions: fragrance percentage is calculated on wax weight, not total batch weight; container capacity in fluid ounces converts to wax weight via the fill factor, at the standard fill level of 94% of brim unless you choose brim — a candle is poured to a fill line, not the rim (a brim-full figure overfills the tin, which our own first test pour demonstrated at the bench); intensity scales the wax's max load (Unscented 0%, Light 55%, Medium 80%, Strong 100%); wick size follows jar inside diameter. Always test-burn before a full production batch.</p>
+    <p class="ref-footnote">Assumptions: fragrance percentage is calculated on wax weight, not total batch weight; container capacity in fluid ounces converts to wax weight via the fill factor, at the standard fill level of 94% of brim unless you choose brim — a candle is poured to a fill line, not the rim (a brim-full figure overfills the tin, which our own first test pour demonstrated at the bench); intensity scales the wax's max load (Unscented 0%, Light 55%, Medium 80%, Strong 100%); wick size follows your exact measured inside diameter. Always test-burn before a full production batch.</p>
   </section>
 
   <section class="faq-section">
@@ -1138,7 +1130,7 @@
     updateCalcBtn();
   });
 
-  document.getElementById('diameter').addEventListener('change', (e) => {
+  document.getElementById('diameter').addEventListener('input', (e) => {
     state.diameter = parseFloat(e.target.value) || null;
     updateCalcBtn();
   });
