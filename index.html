@@ -525,13 +525,20 @@
       <option value="4">3.5 – 4 in</option>
       <option value="5">Over 4 in (wide)</option>
     </select>
+    <label class="field-label">Fill level</label>
+    <div class="intensity-row" id="fill-grid">
+      <div class="intensity-option selected" data-fill="standard" tabindex="0" role="button">Standard pour — leaves headspace</div>
+      <div class="intensity-option" data-fill="brim" tabindex="0" role="button">To the brim</div>
+    </div>
+    <p style="font-size:0.82rem; opacity:0.75; margin-top:6px;">Standard pour fills to 94% of capacity — real headspace below the rim (about ⅜ in on a typical 8 oz tin). A brim-full number overfills the candle; our own first test pour proved it at the bench.</p>
   </section>
 
   <section class="step">
     <p class="step-label">III &middot; Fragrance intensity</p>
     <div class="intensity-row" id="intensity-grid">
+      <div class="intensity-option" data-level="unscented" tabindex="0" role="button">⚪ Unscented — pure wax</div>
       <div class="intensity-option" data-level="light" tabindex="0" role="button">🌸 Light</div>
-      <div class="intensity-option" data-level="medium" tabindex="0" role="button">🌺 Medium</div>
+      <div class="intensity-option selected" data-level="medium" tabindex="0" role="button">🌺 Medium</div>
       <div class="intensity-option" data-level="strong" tabindex="0" role="button">💐 Strong</div>
     </div>
   </section>
@@ -561,6 +568,7 @@
     <div class="result-grid">
       <div class="result-row"><span class="rlabel">Wax needed</span><span class="rvalue" id="r-wax">—</span></div>
       <div class="result-row"><span class="rlabel">Fragrance oil</span><span class="rvalue" id="r-fragrance">—</span></div>
+      <div class="result-row"><span class="rlabel">Total batch</span><span class="rvalue" id="r-total">—</span></div>
       <div class="result-row"><span class="rlabel">Wick size</span><span class="rvalue" id="r-wick">—</span></div>
       <div class="result-row"><span class="rlabel">Add fragrance at</span><span class="rvalue" id="r-addtemp">—</span></div>
       <div class="result-row"><span class="rlabel">Pour at</span><span class="rvalue" id="r-pourtemp">—</span></div>
@@ -577,7 +585,7 @@
 
   <section class="reference-section">
     <h2 class="section-title">Wax reference, by type</h2>
-    <p class="section-sub">Fill factor and max fragrance load vary by wax — a flat 0.86 or flat 8% doesn't hold across all five. Here's what each one actually takes.</p>
+    <p class="section-sub">Fill factor and max fragrance load vary by wax — a flat 0.86 or flat 8% doesn't hold across all five. Here's what each one actually takes. Batch results also apply the standard fill level (94% of capacity) on top of the fill factor, so the numbers land at a real pour line.</p>
     <div class="ref-table">
       <div class="ref-row ref-head"><span>Wax</span><span>Fill factor</span><span>Max load (typical)</span><span>Add / pour</span></div>
       <div class="ref-row"><span>Soy</span><span>0.86</span><span>10%</span><span>130–140°F / 120–130°F</span></div>
@@ -594,14 +602,14 @@
     <p class="section-sub">Every number below follows this calculator's exact formulas — run the same inputs and you'll get the same results.</p>
     <div class="ref-table">
       <div class="ref-row"><span><strong>Inputs</strong></span><span>Soy wax · 8 fl oz container · 2.5–3 in diameter · Medium intensity · 4 candles</span></div>
-      <div class="ref-row"><span>1 · Wax per candle</span><span>8 fl oz × 0.86 (soy fill factor) = <strong>6.88 oz</strong></span></div>
+      <div class="ref-row"><span>1 · Wax per candle</span><span>8 fl oz × 0.94 (standard fill — leaves headspace) × 0.86 (soy fill factor) = <strong>6.47 oz</strong></span></div>
       <div class="ref-row"><span>2 · Fragrance load</span><span>10% (soy max) × 0.80 (medium intensity) = <strong>8.0%</strong></span></div>
-      <div class="ref-row"><span>3 · Fragrance per candle</span><span>6.88 oz × 8.0% = <strong>0.55 oz</strong></span></div>
-      <div class="ref-row"><span>4 · Batch totals (×4)</span><span>Wax <strong>27.52 oz</strong> · Fragrance oil <strong>2.20 oz</strong></span></div>
+      <div class="ref-row"><span>3 · Fragrance per candle</span><span>6.47 oz × 8.0% = <strong>0.52 oz</strong></span></div>
+      <div class="ref-row"><span>4 · Batch totals (×4)</span><span>Wax <strong>25.87 oz</strong> · Fragrance oil <strong>2.07 oz</strong></span></div>
       <div class="ref-row"><span>5 · Wick</span><span>2.5–3 in diameter → <strong>CD-18</strong></span></div>
       <div class="ref-row"><span>6 · Temperatures</span><span>Add fragrance <strong>130–140°F</strong> · Pour <strong>120–130°F</strong></span></div>
     </div>
-    <p class="ref-footnote">Assumptions: fragrance percentage is calculated on wax weight, not total batch weight; container capacity in fluid ounces converts to wax weight via the fill factor; intensity scales the wax's max load (Light 55%, Medium 80%, Strong 100%); wick size follows jar inside diameter. Always test-burn before a full production batch.</p>
+    <p class="ref-footnote">Assumptions: fragrance percentage is calculated on wax weight, not total batch weight; container capacity in fluid ounces converts to wax weight via the fill factor, at the standard fill level of 94% of brim unless you choose brim — a candle is poured to a fill line, not the rim (a brim-full figure overfills the tin, which our own first test pour demonstrated at the bench); intensity scales the wax's max load (Unscented 0%, Light 55%, Medium 80%, Strong 100%); wick size follows jar inside diameter. Always test-burn before a full production batch.</p>
   </section>
 
   <section class="faq-section">
@@ -1066,7 +1074,8 @@
     blend:    { fill: 0.88, loadMax: 0.10, addTemp: '150–160°F', pourTemp: '135–145°F', label: 'Soy/Paraffin Blend' },
   };
 
-  const INTENSITY_FRACTION = { light: 0.55, medium: 0.8, strong: 1.0 };
+  const INTENSITY_FRACTION = { unscented: 0, light: 0.55, medium: 0.8, strong: 1.0 };
+  const FILL_LEVEL_FACTOR = { standard: 0.94, brim: 1.0 };
 
   const WICK_CHART = [
     { max: 1.5, wick: 'CD-6 to CD-8' },
@@ -1079,7 +1088,7 @@
   ];
 
   // ---- State ----
-  let state = { wax: null, capacity: null, diameter: null, intensity: null, qty: 1 };
+  let state = { wax: null, capacity: null, diameter: null, intensity: 'medium', qty: 1, fillLevel: 'standard' };
 
   // Disabling a tool's button also clears its stale results.
   function setToolBtn(btnId, resultsId, enabled) {
@@ -1102,11 +1111,22 @@
     el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(); } });
   });
 
-  document.querySelectorAll('.intensity-option').forEach(el => {
+  document.querySelectorAll('.intensity-option[data-level]').forEach(el => {
     const select = () => {
-      document.querySelectorAll('.intensity-option').forEach(o => o.classList.remove('selected'));
+      document.querySelectorAll('.intensity-option[data-level]').forEach(o => o.classList.remove('selected'));
       el.classList.add('selected');
       state.intensity = el.dataset.level;
+      updateCalcBtn();
+    };
+    el.addEventListener('click', select);
+    el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(); } });
+  });
+
+  document.querySelectorAll('.intensity-option[data-fill]').forEach(el => {
+    const select = () => {
+      document.querySelectorAll('.intensity-option[data-fill]').forEach(o => o.classList.remove('selected'));
+      el.classList.add('selected');
+      state.fillLevel = el.dataset.fill;
       updateCalcBtn();
     };
     el.addEventListener('click', select);
@@ -1136,27 +1156,32 @@
 
   document.getElementById('calc-btn').addEventListener('click', () => {
     const wax = WAX_DATA[state.wax];
-    const waxWeightPerCandle = state.capacity * wax.fill;
+    const waxWeightPerCandle = state.capacity * FILL_LEVEL_FACTOR[state.fillLevel] * wax.fill;
     const loadPct = wax.loadMax * INTENSITY_FRACTION[state.intensity];
     const fragrancePerCandle = waxWeightPerCandle * loadPct;
     const wickEntry = WICK_CHART.find(w => state.diameter <= w.max);
 
     const totalWax = (waxWeightPerCandle * state.qty).toFixed(2);
     const totalFragrance = (fragrancePerCandle * state.qty).toFixed(2);
+    const totalBatch = (parseFloat(totalWax) + parseFloat(totalFragrance)).toFixed(2);
 
     document.getElementById('r-wax').textContent = `${totalWax} oz`;
-    document.getElementById('r-fragrance').textContent = `${totalFragrance} oz (${(loadPct*100).toFixed(1)}%)`;
+    document.getElementById('r-fragrance').textContent = loadPct === 0 ? `0 oz — pure wax pour` : `${totalFragrance} oz (${(loadPct*100).toFixed(1)}%)`;
+    document.getElementById('r-total').textContent = `${totalBatch} oz`;
     document.getElementById('r-wick').textContent = wickEntry.wick;
     document.getElementById('r-addtemp').textContent = wax.addTemp;
     document.getElementById('r-pourtemp').textContent = wax.pourTemp;
+    const fillNote = state.fillLevel === 'brim'
+      ? ' Brim fill leaves no headspace — expect the melt pool to ride at the rim. The standard pour is the bench-tested default.'
+      : ' Poured at the standard fill line — headspace below the rim is part of the recipe, not an accident.';
     document.getElementById('result-note').textContent =
-      `Based on ${wax.label} at ${state.intensity} intensity for ${state.qty} candle${state.qty > 1 ? 's' : ''}. Always test-burn before a full production batch — fragrance oil brands vary in max safe load.`;
+      `Based on ${wax.label} at ${state.intensity} intensity for ${state.qty} candle${state.qty > 1 ? 's' : ''}. Always test-burn before a full production batch — fragrance oil brands vary in max safe load.${fillNote}`;
 
     document.getElementById('results').style.display = 'block';
     document.getElementById('save-status').textContent = '';
 
     // Jar fill animation
-    const fillHeight = 116 * 0.75; // visual fill level, doesn't need to be literal
+    const fillHeight = 116 * (state.fillLevel === 'brim' ? 0.78 : 0.70); // visual fill level
     const rect = document.getElementById('jar-fill-rect');
     rect.setAttribute('y', 138 - fillHeight);
     rect.setAttribute('height', 0);
@@ -1167,7 +1192,7 @@
 
     lastResult = {
       wax: wax.label, waxCode: state.wax, capacity: state.capacity, diameter: state.diameter,
-      intensity: state.intensity, qty: state.qty,
+      intensity: state.intensity, fillLevel: state.fillLevel, qty: state.qty,
       totalWaxOz: parseFloat(totalWax), totalFragranceOz: parseFloat(totalFragrance),
       wick: wickEntry.wick, addTemp: wax.addTemp, pourTemp: wax.pourTemp
     };
