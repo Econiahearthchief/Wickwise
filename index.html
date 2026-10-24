@@ -522,7 +522,7 @@
       <div class="intensity-option selected" data-fill="standard" tabindex="0" role="button">Standard pour — leaves headspace</div>
       <div class="intensity-option" data-fill="brim" tabindex="0" role="button">To the brim</div>
     </div>
-    <p style="font-size:0.82rem; opacity:0.75; margin-top:6px;">Standard pour fills to 94% of capacity — real headspace below the rim (about ⅜ in on a typical 8 oz tin). A brim-full number overfills the candle; our own first test pour proved it at the bench.</p>
+    <p style="font-size:0.82rem; opacity:0.75; margin-top:6px;">Standard pour fills to just below the lid stop — the lip the lid seats against — so the wax never touches the lid and the flame starts life sheltered below the rim. On a jar, that's just below the threads. A brim-full number overfills the candle; our own first test pour proved it at the bench.</p>
   </section>
 
   <section class="step">
@@ -577,7 +577,7 @@
 
   <section class="reference-section">
     <h2 class="section-title">Wax reference, by type</h2>
-    <p class="section-sub">Fill factor and max fragrance load vary by wax — a flat 0.86 or flat 8% doesn't hold across all five. Here's what each one actually takes. Batch results also apply the standard fill level (94% of capacity) on top of the fill factor, so the numbers land at a real pour line.</p>
+    <p class="section-sub">Fill factor and max fragrance load vary by wax — a flat 0.86 or flat 8% doesn't hold across all five. Here's what each one actually takes. Batch results also apply the standard fill level (94% of capacity) on top of the fill factor, so the numbers land at a real pour line — on our own 8 oz tin, that lands at 6.47 oz of total fill, right at the lid stop, poured and weighed at our bench. Fragrance is split out of that fill, never added on top of it.</p>
     <div class="ref-table">
       <div class="ref-row ref-head"><span>Wax</span><span>Fill factor</span><span>Max load (typical)</span><span>Add / pour</span></div>
       <div class="ref-row"><span>Soy</span><span>0.86</span><span>10%</span><span>130–140°F / 120–130°F</span></div>
@@ -594,14 +594,14 @@
     <p class="section-sub">Every number below follows this calculator's exact formulas — run the same inputs and you'll get the same results.</p>
     <div class="ref-table">
       <div class="ref-row"><span><strong>Inputs</strong></span><span>Soy wax · 8 fl oz container · 3 in inside diameter · Medium intensity · 4 candles</span></div>
-      <div class="ref-row"><span>1 · Wax per candle</span><span>8 fl oz × 0.94 (standard fill — leaves headspace) × 0.86 (soy fill factor) = <strong>6.47 oz</strong></span></div>
+      <div class="ref-row"><span>1 · Total fill per candle</span><span>8 fl oz × 0.94 (standard fill — to just below the lid stop) × 0.86 (soy fill factor) = <strong>6.47 oz</strong></span></div>
       <div class="ref-row"><span>2 · Fragrance load</span><span>10% (soy max) × 0.80 (medium intensity) = <strong>8.0%</strong></span></div>
-      <div class="ref-row"><span>3 · Fragrance per candle</span><span>6.47 oz × 8.0% = <strong>0.52 oz</strong></span></div>
-      <div class="ref-row"><span>4 · Batch totals (×4)</span><span>Wax <strong>25.87 oz</strong> · Fragrance oil <strong>2.07 oz</strong></span></div>
+      <div class="ref-row"><span>3 · Split the fill</span><span>Wax 6.47 ÷ 1.08 = <strong>5.99 oz</strong> · Fragrance 6.47 − 5.99 = <strong>0.48 oz</strong> — the fragrance takes its room out of the wax, so the pair land on the fill line together</span></div>
+      <div class="ref-row"><span>4 · Batch totals (×4)</span><span>Wax <strong>23.95 oz</strong> · Fragrance oil <strong>1.92 oz</strong> · Total <strong>25.87 oz</strong></span></div>
       <div class="ref-row"><span>5 · Wick</span><span>3 in diameter → <strong>CD-18</strong></span></div>
       <div class="ref-row"><span>6 · Temperatures</span><span>Add fragrance <strong>130–140°F</strong> · Pour <strong>120–130°F</strong></span></div>
     </div>
-    <p class="ref-footnote">Assumptions: fragrance percentage is calculated on wax weight, not total batch weight; container capacity in fluid ounces converts to wax weight via the fill factor, at the standard fill level of 94% of brim unless you choose brim — a candle is poured to a fill line, not the rim (a brim-full figure overfills the tin, which our own first test pour demonstrated at the bench); intensity scales the wax's max load (Unscented 0%, Light 55%, Medium 80%, Strong 100%); wick size follows your exact measured inside diameter. Always test-burn before a full production batch.</p>
+    <p class="ref-footnote">Assumptions: fragrance load is a percentage of wax weight, and the container's fill is split between the two — wax + fragrance together land on the fill line, because fragrance stacked on top of a full wax fill is how a candle ends up over-filled and over-scented (our own bench proved that one too). Container capacity in fluid ounces converts to total fill weight via the fill factor, at the standard fill level of 94% of brim unless you choose brim — a candle is poured to a fill line (just below the lid stop on a tin, just below the threads on a jar), not the rim; intensity scales the wax's max load (Unscented 0%, Light 55%, Medium 80%, Strong 100%); wick size follows your exact measured inside diameter. Always test-burn before a full production batch.</p>
   </section>
 
   <section class="faq-section">
@@ -1148,9 +1148,12 @@
 
   document.getElementById('calc-btn').addEventListener('click', () => {
     const wax = WAX_DATA[state.wax];
-    const waxWeightPerCandle = state.capacity * FILL_LEVEL_FACTOR[state.fillLevel] * wax.fill;
+    const fillWeightPerCandle = state.capacity * FILL_LEVEL_FACTOR[state.fillLevel] * wax.fill;
     const loadPct = wax.loadMax * INTENSITY_FRACTION[state.intensity];
-    const fragrancePerCandle = waxWeightPerCandle * loadPct;
+    // The fill line is fixed by the container: fragrance takes its room out of the
+    // wax, never stacks on top — wax + fragrance together land on the fill line.
+    const waxWeightPerCandle = fillWeightPerCandle / (1 + loadPct);
+    const fragrancePerCandle = fillWeightPerCandle - waxWeightPerCandle;
     const wickEntry = WICK_CHART.find(w => state.diameter <= w.max);
 
     const totalWax = (waxWeightPerCandle * state.qty).toFixed(2);
@@ -1165,7 +1168,7 @@
     document.getElementById('r-pourtemp').textContent = wax.pourTemp;
     const fillNote = state.fillLevel === 'brim'
       ? ' Brim fill leaves no headspace — expect the melt pool to ride at the rim. The standard pour is the bench-tested default.'
-      : ' Poured at the standard fill line — headspace below the rim is part of the recipe, not an accident.';
+      : ' Poured to just below the lid stop — the lip the lid seats against — and the fragrance was split out of the fill, not stacked on top. The headspace below the rim is part of the recipe, not an accident.';
     document.getElementById('result-note').textContent =
       `Based on ${wax.label} at ${state.intensity} intensity for ${state.qty} candle${state.qty > 1 ? 's' : ''}. Always test-burn before a full production batch — fragrance oil brands vary in max safe load.${fillNote}`;
 
