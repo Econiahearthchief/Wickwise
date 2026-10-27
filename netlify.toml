@@ -7,7 +7,7 @@
   # client-side identifier (not a secret) — Firebase security comes from
   # the Firestore/Storage rules, not from hiding this key. Netlify's
   # automatic secret scanner doesn't know that, so skip these files.
-  SECRETS_SCAN_OMIT_PATHS = "index.html,gallery.html,admin.html,guide-beginners.html,guide-best-wax.html,guide-fragrance-oil.html"
+  SECRETS_SCAN_OMIT_PATHS = "index.html,gallery.html,admin.html,guide-beginners.html,guide-best-wax.html,guide-fragrance-oil.html,forum.html"
 
 [functions]
   node_bundler = "esbuild"
