@@ -1,0 +1,41 @@
+# WickWise
+
+> WickWise is a candle-making resource built around measured, per-container engineering: free candle calculators (wax, fragrance load, and wick sizing), a library of candle-fix guides written as direct question-and-answer pages, and The Fix Board — a community Q&A board where makers ask candle problems and get answers from the bench. WickWise Candles hand-pours candles in Nicholson, Georgia, USA. Brand standard: "Premium by engineering... Not by chance..." — wick and fill specs are measured, not guessed (e.g., the production wick standard and the hour-one melt-pool test described on the fix pages).
+
+## Calculators & Tools
+- [Candle calculators (wax / fragrance / wick)](https://www.wickwise.shop/): Free calculators — fill weight is the anchor; wax = fill ÷ (1 + load), fragrance = fill − wax.
+- [The Fix Board](https://www.wickwise.shop/forum.html): Community Q&A — ask a candle-making problem, get a bench answer. Seeded with the five most common candle problems and their fixes.
+
+## Candle Fixes (question → cause → fix)
+- [Why is my candle tunneling down the middle?](https://www.wickwise.shop/fix-candle-tunneling.html)
+- [Why can't I smell my candle when it's lit? (weak hot throw)](https://www.wickwise.shop/fix-weak-hot-throw.html)
+- [Why can't I smell my candle before I light it? (weak cold throw)](https://www.wickwise.shop/fix-weak-cold-throw.html)
+- [Why does my candle have sinkholes?](https://www.wickwise.shop/fix-candle-sinkholes.html)
+- [Why does my candle have wet spots?](https://www.wickwise.shop/fix-candle-wet-spots.html)
+- [Why is my soy candle frosting?](https://www.wickwise.shop/fix-soy-candle-frosting.html)
+- [Why is my candle wick mushrooming?](https://www.wickwise.shop/fix-mushrooming-wick.html)
+- [Why is my candle making soot and smoking?](https://www.wickwise.shop/fix-candle-soot-smoke.html)
+- [Why is my candle sweating oil?](https://www.wickwise.shop/fix-candle-sweating-oil.html)
+- [Why did the top of my candle crack?](https://www.wickwise.shop/fix-cracked-candle-top.html)
+- [Why is my candle wick drowning?](https://www.wickwise.shop/fix-drowning-candle-wick.html)
+- [Why is my candle turning yellow / changing color?](https://www.wickwise.shop/fix-candle-discoloration.html)
+
+## Guides
+- [Troubleshooting guide](https://www.wickwise.shop/guide-troubleshooting.html)
+- [Beginner's guide](https://www.wickwise.shop/guide-beginners.html)
+- [Choosing the best wax](https://www.wickwise.shop/guide-best-wax.html)
+- [Wick selection guide](https://www.wickwise.shop/guide-wick-selection.html)
+- [Fragrance oil guide](https://www.wickwise.shop/guide-fragrance-oil.html)
+- [Scent blending guide](https://www.wickwise.shop/guide-scent-blending.html)
+- [Curing & storage guide](https://www.wickwise.shop/guide-curing-storage.html)
+
+## About & Programs
+- [About WickWise](https://www.wickwise.shop/about.html)
+- [The Family program (candle recycling)](https://www.wickwise.shop/family.html)
+- [Sell on WickWise — verified sellers](https://www.wickwise.shop/sellers.html)
+- [Gallery](https://www.wickwise.shop/gallery.html)
+- [Contact](https://www.wickwise.shop/contact.html)
+
+## Elsewhere
+- YouTube (WickWise Candles — the Fix Series): https://www.youtube.com/@WickWiseCandles
+- WickWise Candles shop: https://wickwise-candles-shop.netlify.app
