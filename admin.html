@@ -95,6 +95,9 @@
     <h2 class="section-title">Pending verified sellers</h2>
     <div id="pending-sellers-list"><div class="empty-note">Loading…</div></div>
 
+    <h2 class="section-title">Pending forum posts</h2>
+    <div id="pending-forum-list"><div class="empty-note">Loading…</div></div>
+
     <h2 class="section-title">Add a verified seller</h2>
     <div class="seller-form">
       <input type="text" id="seller-name" placeholder="Seller / shop name">
@@ -135,7 +138,7 @@
     document.getElementById('login-screen').style.display = isAdmin ? 'none' : 'block';
     document.getElementById('app-screen').style.display = isAdmin ? 'block' : 'none';
     document.getElementById('logout-btn').style.display = isAdmin ? 'inline-block' : 'none';
-    if (isAdmin) { loadPending(); loadPendingSellers(); }
+    if (isAdmin) { loadPending(); loadPendingSellers(); loadPendingForum(); }
   });
 
   document.getElementById('login-btn').addEventListener('click', async () => {
@@ -215,6 +218,58 @@
         await updateDoc(doc(db, 'verified_sellers', btn.dataset.id), { status: btn.dataset.action });
         loadPendingSellers();
       });
+    });
+  }
+
+  async function loadPendingForum() {
+    const listEl = document.getElementById('pending-forum-list');
+    listEl.innerHTML = '<div class="empty-note">Loading…</div>';
+    const q = query(collection(db, 'forum_posts'), where('status', '==', 'pending'));
+    const snap = await getDocs(q);
+    if (snap.empty) {
+      listEl.innerHTML = '<div class="empty-note">No pending forum posts.</div>';
+      return;
+    }
+    listEl.innerHTML = '';
+    snap.forEach(docSnap => {
+      const d = docSnap.data();
+      const card = document.createElement('div');
+      card.className = 'sub-card';
+      const nameEl = document.createElement('div');
+      nameEl.className = 'sub-name';
+      nameEl.textContent = d.name || 'a maker';
+      const noteEl = document.createElement('div');
+      noteEl.className = 'sub-note';
+      noteEl.textContent = d.question || '';
+      const ta = document.createElement('textarea');
+      ta.placeholder = "Chief's answer (optional — approve now, answer here or later)";
+      ta.style.cssText = 'width:100%; background: var(--wax-dark); border:1px solid var(--line); color: var(--wax-cream); padding:10px 12px; border-radius:8px; margin-bottom:10px; font-size:0.9rem; font-family:inherit; min-height:70px; box-sizing:border-box;';
+      const actions = document.createElement('div');
+      actions.className = 'sub-actions';
+      const ap = document.createElement('button');
+      ap.className = 'approve-btn';
+      ap.textContent = 'Approve';
+      ap.addEventListener('click', async () => {
+        const upd = { status: 'approved' };
+        const a = ta.value.trim();
+        if (a) upd.answer = a;
+        await updateDoc(doc(db, 'forum_posts', docSnap.id), upd);
+        loadPendingForum();
+      });
+      const rj = document.createElement('button');
+      rj.className = 'reject-btn';
+      rj.textContent = 'Reject';
+      rj.addEventListener('click', async () => {
+        await updateDoc(doc(db, 'forum_posts', docSnap.id), { status: 'rejected' });
+        loadPendingForum();
+      });
+      actions.appendChild(ap);
+      actions.appendChild(rj);
+      card.appendChild(nameEl);
+      card.appendChild(noteEl);
+      card.appendChild(ta);
+      card.appendChild(actions);
+      listEl.appendChild(card);
     });
   }
 
