@@ -6,6 +6,9 @@
 - [Candle calculators (wax / fragrance / wick)](https://www.wickwise.shop/): Free calculators — fill weight is the anchor; wax = fill ÷ (1 + load), fragrance = fill − wax.
 - [The Fix Board](https://www.wickwise.shop/forum.html): Community Q&A — ask a candle-making problem, get a bench answer. Seeded with the five most common candle problems and their fixes.
 
+## WickWise Candles
+- [First Edition — Coconut Vanilla](https://wickwise-candles-shop.netlify.app): The first production run — 24 hand-poured 8 oz tins, American-grown soy wax, wooden wick built to a measured spec, 14-day cure. Pre-orders are open at the shop; first candles ship November 28, 2026.
+
 ## Candle Fixes (question → cause → fix)
 - [Why is my candle tunneling down the middle?](https://www.wickwise.shop/fix-candle-tunneling.html)
 - [Why can't I smell my candle when it's lit? (weak hot throw)](https://www.wickwise.shop/fix-weak-hot-throw.html)
